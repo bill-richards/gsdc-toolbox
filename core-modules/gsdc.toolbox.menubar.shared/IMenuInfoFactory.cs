@@ -1,6 +1,6 @@
 ﻿using System.Windows.Input;
 
-namespace gsdc.toolbox.menus
+namespace gsdc.toolbox.menubar
 {
     public interface IMenuInfoFactory
     {

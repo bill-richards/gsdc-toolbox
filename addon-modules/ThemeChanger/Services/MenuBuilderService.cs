@@ -1,4 +1,5 @@
-﻿using gsdc.toolbox.menus;
+﻿using gsdc.toolbox.menubar;
+using gsdc.toolbox.menus;
 using Prism.Events;
 
 namespace ThemeChanger.Services

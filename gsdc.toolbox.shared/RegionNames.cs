@@ -6,7 +6,6 @@ namespace gsdc.toolbox
    public static class RegionNames
    {
       public static readonly string ShellBackgroundRegion = "{4655BBAE-342D-4B12-AA80-DE2648E3FAB1}";
-      //public static readonly string ShellBannerRegion = "{2142FAF0-158B-400A-BF5E-72035E5636CB}";
       public static readonly string ShellApplicationsRegion = "{CC0C2909-0B51-4E35-9B64-80F01DBC9699}";
       public static readonly string ShellMenu = "{851EED84-FFE4-4003-B070-55AFEE7BE0A7}";
       public static readonly string ShellToolboxMenu = "{E0CE475B-D185-4ED7-B565-BD0E70CBD3A5}";
@@ -23,7 +22,6 @@ namespace gsdc.toolbox
       private static readonly Dictionary<string, string> RegionNamesDictionary = new Dictionary<string, string>
       {
          {"ShellBackgroundRegion", ShellBackgroundRegion },
-         //{"ShellBannerRegion", ShellBannerRegion },
          {"ShellApplicationsRegion", ShellApplicationsRegion },
          {"ShellMenu", ShellMenu },
          {"ShellMainRegion", ShellMainRegion },

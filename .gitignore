@@ -349,3 +349,7 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 /Build/netcoreapp3.1
+/NDependOut
+/NDependOut1
+/gsdc-toolbox.ndproj
+/gsdc-toolbox1.ndproj
