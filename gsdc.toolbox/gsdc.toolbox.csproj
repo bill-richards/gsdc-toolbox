@@ -7,7 +7,7 @@
     <ApplicationIcon>resources\images\Toolbox.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>D:\Git\gsdc-rewrite\gsdc-toolbox\Build\</OutputPath>
+    <OutputPath>..\Build\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="resources\tb_img.png" />
