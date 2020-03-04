@@ -1,0 +1,7 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>gsdc.toolbox.addons.shared</AssemblyName>
+    <RootNamespace>gsdc.toolbox.addons</RootNamespace>
+  </PropertyGroup>
+</Project>

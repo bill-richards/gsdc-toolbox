@@ -5,13 +5,19 @@
     <AssemblyName>gsdc.toolbox.viewactivator</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Prism.Wpf" Version="7.2.0.1367" />
+    <Compile Remove="factories\**" />
+    <Compile Remove="services\**" />
+    <EmbeddedResource Remove="factories\**" />
+    <EmbeddedResource Remove="services\**" />
+    <None Remove="factories\**" />
+    <None Remove="services\**" />
+    <Page Remove="factories\**" />
+    <Page Remove="services\**" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="factories\" />
-    <Folder Include="services\" />
+    <PackageReference Include="Prism.Wpf" Version="7.2.0.1422" />
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="XCOPY $(TargetDir)$(TargetFileName) $(SolutionDir)Build\netcoreapp3.1\core-modules\" />
+    <Exec Command="xcopy /Y $(TargetDir)*.dll $(ProjectDir)..\..\Build\netcoreapp3.1\core-modules\" />
   </Target>
 </Project>

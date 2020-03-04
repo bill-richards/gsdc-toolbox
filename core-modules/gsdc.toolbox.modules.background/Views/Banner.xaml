@@ -9,9 +9,9 @@
          <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Canvas.Left="155" Canvas.Top="-35"
                 Cursor="None" MinWidth="80" MinHeight="80" Source="../resources/images/tb_img.png"/>
 
-         <TextBlock Text="{Binding ApplicationName}" 
+         <TextBlock Text="{Binding ApplicationName, FallbackValue=ToolBox}" 
                     Canvas.Top="28" 
-                    TextWrapping="NoWrap" Foreground="{Binding ApplicationNameColour}" 
+                    TextWrapping="NoWrap" Foreground="{Binding ApplicationNameColour, FallbackValue=#FFC4CFD6}" 
                     FontSize="48" Opacity="0.85" TextAlignment="Left" FontWeight="Normal" 
                     RenderTransformOrigin="-2.6,0.5">
             <TextBlock.RenderTransform>
@@ -23,9 +23,9 @@
                </TransformGroup>
             </TextBlock.RenderTransform>
          </TextBlock>
-         <TextBlock Text="{Binding CompanyName}" 
+         <TextBlock Text="{Binding CompanyName, FallbackValue=gsdc}" 
                     Canvas.Left="50"
-                    TextWrapping="NoWrap" Foreground="{Binding CompanyNameColour}" 
+                    TextWrapping="NoWrap" Foreground="{Binding CompanyNameColour, FallbackValue=#FFC5BC25}" 
                     FontSize="48" Opacity="0.7" TextAlignment="Left" FontWeight="Bold" 
                     RenderTransformOrigin="-2.6,0.5">
             <TextBlock.RenderTransform>

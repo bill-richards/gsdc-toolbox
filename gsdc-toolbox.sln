@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core-modules", "core-module
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gsdc.toolbox.background", "core-modules\gsdc.toolbox.modules.background\gsdc.toolbox.background.csproj", "{E898C1DA-DC20-4CE7-8AE5-49A2787C59A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gsdc.toolbox.menubar", "core-modules\gsdc.toolbox.menubar\gsdc.toolbox.menubar.csproj", "{41DE80B1-2016-4D18-BBFB-ED254B248816}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gsdc.toolbox.menubar", "core-modules\gsdc.toolbox.menubar\gsdc.toolbox.menubar.csproj", "{41DE80B1-2016-4D18-BBFB-ED254B248816}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "add-ons", "add-ons", "{41BF65A9-8529-4727-BEF4-D1A2C4167BB9}"
 EndProject
@@ -20,10 +20,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThemeChanger", "addon-modul
 		{026429E3-941E-4E40-A8EC-1F101D7F4072} = {026429E3-941E-4E40-A8EC-1F101D7F4072}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gsdc.toolbox.viewactivator", "core-modules\gsdc.toolbox.viewactivator\gsdc.toolbox.viewactivator.csproj", "{95DC0D96-FFB2-4A43-A431-B503F5991DE4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gsdc.toolbox.viewactivator", "core-modules\gsdc.toolbox.viewactivator\gsdc.toolbox.viewactivator.csproj", "{95DC0D96-FFB2-4A43-A431-B503F5991DE4}"
 	ProjectSection(ProjectDependencies) = postProject
 		{026429E3-941E-4E40-A8EC-1F101D7F4072} = {026429E3-941E-4E40-A8EC-1F101D7F4072}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gsdc.toolbox.addons", "core-modules\gsdc.toolbox.addons\gsdc.toolbox.addons.csproj", "{7C9CA1BC-0106-4FFF-9B10-FC948A9A6330}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gsdc.toolbox.addons.shared", "core-modules\gsdc.toolbox.addons.shared\gsdc.toolbox.addons.shared.csproj", "{1975CE49-6077-47CA-9988-8B800F6571B5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gsdc.toolbox.menubar.shared", "core-modules\gsdc.toolbox.menubar.shared\gsdc.toolbox.menubar.shared.csproj", "{6942F0F1-0EC4-4962-85F6-93B4AE739E5F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,6 +62,18 @@ Global
 		{95DC0D96-FFB2-4A43-A431-B503F5991DE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95DC0D96-FFB2-4A43-A431-B503F5991DE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95DC0D96-FFB2-4A43-A431-B503F5991DE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C9CA1BC-0106-4FFF-9B10-FC948A9A6330}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C9CA1BC-0106-4FFF-9B10-FC948A9A6330}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C9CA1BC-0106-4FFF-9B10-FC948A9A6330}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C9CA1BC-0106-4FFF-9B10-FC948A9A6330}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1975CE49-6077-47CA-9988-8B800F6571B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1975CE49-6077-47CA-9988-8B800F6571B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1975CE49-6077-47CA-9988-8B800F6571B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1975CE49-6077-47CA-9988-8B800F6571B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6942F0F1-0EC4-4962-85F6-93B4AE739E5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6942F0F1-0EC4-4962-85F6-93B4AE739E5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6942F0F1-0EC4-4962-85F6-93B4AE739E5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6942F0F1-0EC4-4962-85F6-93B4AE739E5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,6 +83,9 @@ Global
 		{41DE80B1-2016-4D18-BBFB-ED254B248816} = {D3BAD681-14D1-42E5-AE4E-34F3CAB4C7FC}
 		{00047680-B974-4C34-AE29-BC9C83597FE6} = {41BF65A9-8529-4727-BEF4-D1A2C4167BB9}
 		{95DC0D96-FFB2-4A43-A431-B503F5991DE4} = {D3BAD681-14D1-42E5-AE4E-34F3CAB4C7FC}
+		{7C9CA1BC-0106-4FFF-9B10-FC948A9A6330} = {D3BAD681-14D1-42E5-AE4E-34F3CAB4C7FC}
+		{1975CE49-6077-47CA-9988-8B800F6571B5} = {D3BAD681-14D1-42E5-AE4E-34F3CAB4C7FC}
+		{6942F0F1-0EC4-4962-85F6-93B4AE739E5F} = {D3BAD681-14D1-42E5-AE4E-34F3CAB4C7FC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {595C71B0-44A1-4FCF-8363-974DD8130B9C}

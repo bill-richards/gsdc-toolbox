@@ -6,7 +6,7 @@
     <RootNamespace>gsdc.toolbox.modules.background</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Prism.Wpf" Version="7.2.0.1367" />
+    <PackageReference Include="Prism.Wpf" Version="7.2.0.1422" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\gsdc.toolbox.shared\gsdc.toolbox.shared.csproj" />
@@ -25,6 +25,6 @@
     <Folder Include="resources\images\" />
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="XCOPY $(TargetDir)$(TargetFileName) $(SolutionDir)Build\netcoreapp3.1\core-modules\" />
+    <Exec Command="xcopy /Y $(TargetDir)*.dll $(ProjectDir)..\..\Build\netcoreapp3.1\core-modules\" />
   </Target>
 </Project>

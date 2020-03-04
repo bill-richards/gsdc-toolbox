@@ -26,6 +26,6 @@ namespace gsdc.toolbox.menubar.Factories
             => new MenuInfo(displayText, name, parentMenuName, command, commandParameter);
 
         public IMenuInfo CreateMenuSeparatorInfo(string parentMenuName)
-            => new MenuInfo(string.Empty, MenuNames.ToolboxMenuSeperator, parentMenuName);
+            => new MenuInfo(string.Empty, ToolboxMenuNames.ToolboxMenuSeparator, parentMenuName);
     }
 }

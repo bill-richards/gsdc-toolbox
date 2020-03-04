@@ -19,19 +19,17 @@ namespace gsdc.toolbox.menubar.ViewModels
 
         private void MenuItemAdded(IMenuInfo newMenuInfo)
         {
-            if (newMenuInfo.ParentName != MenuNames.ToolboxMenuBar) return;
+            if (newMenuInfo.ParentName != ToolboxMenuNames.ToolboxMenuBar) return;
 
             var cache = MenuItems.ToList();
-            MenuItems.Clear();
             AddThisMenuItem(ref newMenuInfo);
-            MenuItems.AddRange(cache);
         }
 
         public ObservableCollection<object> MenuItems { get; } = new ObservableCollection<object>();
 
         private void AddThisMenuItem(ref IMenuInfo info)
         {
-            if (info.Name == MenuNames.ToolboxMenuSeperator)
+            if (info.Name == ToolboxMenuNames.ToolboxMenuSeparator)
                 MenuItems.Add(_menuItemFactory.CreateSeparator());
             else
             {

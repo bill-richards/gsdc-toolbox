@@ -25,7 +25,4 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
-  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="rmdir /s /q $(TargetDir)&#xD;&#xA;mkdir $(TargetDir)add-ons" />
-  </Target>
 </Project>

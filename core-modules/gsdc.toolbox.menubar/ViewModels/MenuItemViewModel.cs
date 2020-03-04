@@ -45,7 +45,7 @@ namespace gsdc.toolbox.menubar.ViewModels
 
         private void AddThisMenuItem(ref IMenuInfo info)
         {
-            if (info.Name == MenuNames.ToolboxMenuSeperator)
+            if (info.Name == ToolboxMenuNames.ToolboxMenuSeparator)
                 MenuItems.Add(_menuItemFactory.CreateSeparator());
             else
             {

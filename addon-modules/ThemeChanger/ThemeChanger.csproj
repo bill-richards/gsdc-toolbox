@@ -5,13 +5,16 @@
     <AssemblyName>ThemeChanger</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Prism.Wpf" Version="7.2.0.1367" />
+    <PackageReference Include="Prism.Wpf" Version="7.2.0.1422" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\" />
     <Folder Include="Views\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\core-modules\gsdc.toolbox.menubar.shared\gsdc.toolbox.menubar.shared.csproj" />
+  </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="XCOPY $(TargetDir)$(TargetFileName) $(SolutionDir)Build\netcoreapp3.1\add-ons\" />
+    <Exec Command="XCOPY /Y $(TargetDir)$(TargetFileName) $(SolutionDir)Build\netcoreapp3.1\add-ons\" />
   </Target>
 </Project>
