@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="gsdc.toolbox.modules.background.Views.Background"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:regions="http://prismlibrary.com/"
+             xmlns:background="clr-namespace:gsdc.toolbox.modules.background"
+             x:ClassModifier="internal"
+             MinHeight="300" MinWidth="300">
+   <Grid Background="{DynamicResource WindowBackgroundBrush}">
+      <Grid.RowDefinitions>
+         <RowDefinition Height="30" />
+         <RowDefinition Height="*" />
+         <RowDefinition Height="Auto" MaxHeight="50"/>
+      </Grid.RowDefinitions>
+
+      <!-- App Banner -->
+      <ContentControl x:Name="BannerRegion" 
+                      Grid.Row="1"
+                      HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                      Style="{DynamicResource ContentControlRegionStyle}" Height="150"
+                      regions:RegionManager.RegionName="{x:Static background:BackgroundRegionNames.BannerRegion}" />
+   </Grid>
+</UserControl>

@@ -1,0 +1,72 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29609.76
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gsdc.toolbox", "gsdc.toolbox\gsdc.toolbox.csproj", "{60872EED-8424-4021-9E2D-67AB167738D3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gsdc.toolbox.shared", "gsdc.toolbox.shared\gsdc.toolbox.shared.csproj", "{026429E3-941E-4E40-A8EC-1F101D7F4072}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core-modules", "core-modules", "{D3BAD681-14D1-42E5-AE4E-34F3CAB4C7FC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gsdc.toolbox.background", "core-modules\gsdc.toolbox.modules.background\gsdc.toolbox.background.csproj", "{E898C1DA-DC20-4CE7-8AE5-49A2787C59A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gsdc.toolbox.menubar", "core-modules\gsdc.toolbox.menubar\gsdc.toolbox.menubar.csproj", "{41DE80B1-2016-4D18-BBFB-ED254B248816}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "add-ons", "add-ons", "{41BF65A9-8529-4727-BEF4-D1A2C4167BB9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThemeChanger", "addon-modules\ThemeChanger\ThemeChanger.csproj", "{00047680-B974-4C34-AE29-BC9C83597FE6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{026429E3-941E-4E40-A8EC-1F101D7F4072} = {026429E3-941E-4E40-A8EC-1F101D7F4072}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gsdc.toolbox.viewactivator", "core-modules\gsdc.toolbox.viewactivator\gsdc.toolbox.viewactivator.csproj", "{95DC0D96-FFB2-4A43-A431-B503F5991DE4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{026429E3-941E-4E40-A8EC-1F101D7F4072} = {026429E3-941E-4E40-A8EC-1F101D7F4072}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Description = A Composite Application using the Prism Framework for netCore 
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60872EED-8424-4021-9E2D-67AB167738D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60872EED-8424-4021-9E2D-67AB167738D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60872EED-8424-4021-9E2D-67AB167738D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60872EED-8424-4021-9E2D-67AB167738D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{026429E3-941E-4E40-A8EC-1F101D7F4072}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{026429E3-941E-4E40-A8EC-1F101D7F4072}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{026429E3-941E-4E40-A8EC-1F101D7F4072}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{026429E3-941E-4E40-A8EC-1F101D7F4072}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E898C1DA-DC20-4CE7-8AE5-49A2787C59A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E898C1DA-DC20-4CE7-8AE5-49A2787C59A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E898C1DA-DC20-4CE7-8AE5-49A2787C59A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E898C1DA-DC20-4CE7-8AE5-49A2787C59A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41DE80B1-2016-4D18-BBFB-ED254B248816}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41DE80B1-2016-4D18-BBFB-ED254B248816}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41DE80B1-2016-4D18-BBFB-ED254B248816}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41DE80B1-2016-4D18-BBFB-ED254B248816}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00047680-B974-4C34-AE29-BC9C83597FE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00047680-B974-4C34-AE29-BC9C83597FE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00047680-B974-4C34-AE29-BC9C83597FE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00047680-B974-4C34-AE29-BC9C83597FE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95DC0D96-FFB2-4A43-A431-B503F5991DE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95DC0D96-FFB2-4A43-A431-B503F5991DE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95DC0D96-FFB2-4A43-A431-B503F5991DE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95DC0D96-FFB2-4A43-A431-B503F5991DE4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E898C1DA-DC20-4CE7-8AE5-49A2787C59A4} = {D3BAD681-14D1-42E5-AE4E-34F3CAB4C7FC}
+		{41DE80B1-2016-4D18-BBFB-ED254B248816} = {D3BAD681-14D1-42E5-AE4E-34F3CAB4C7FC}
+		{00047680-B974-4C34-AE29-BC9C83597FE6} = {41BF65A9-8529-4727-BEF4-D1A2C4167BB9}
+		{95DC0D96-FFB2-4A43-A431-B503F5991DE4} = {D3BAD681-14D1-42E5-AE4E-34F3CAB4C7FC}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {595C71B0-44A1-4FCF-8363-974DD8130B9C}
+	EndGlobalSection
+EndGlobal
