@@ -27,7 +27,7 @@ namespace gsdc.toolbox.addons.services
             }
 
             LoadedCatalog.Initialize();
-            foreach (var info in temporaryCatalog.Modules)
+            foreach (var info in temporaryCatalog.Modules.Reverse())
             {
                 _moduleManager.LoadModule(info.ModuleName);
             }
