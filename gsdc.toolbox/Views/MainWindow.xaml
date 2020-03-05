@@ -6,8 +6,8 @@
         prism:ViewModelLocator.AutoWireViewModel="True"
         Icon="../resources/images/Toolbox.ico"
         Title="{Binding Title}" 
-        Height="640" Width="910">
-     <Grid>
+        Height="640" Width="910" WindowStyle="SingleBorderWindow">
+   <Grid>
       <Grid.RowDefinitions>
          <RowDefinition Height="30" />
          <RowDefinition Height="*" />
@@ -20,13 +20,6 @@
                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                       Style="{DynamicResource ContentControlRegionStyle}"
                       prism:RegionManager.RegionName="{x:Static constants:RegionNames.ShellBackgroundRegion}" />
-
-      <!-- App Banner --><!--
-      <ContentControl x:Name="BannerRegion" 
-                      Grid.Row="1"
-                      HorizontalAlignment="Left" VerticalAlignment="Bottom"
-                      Style="{DynamicResource ContentControlRegionStyle}" Height="150"
-                      prism:RegionManager.RegionName="{x:Static constants:RegionNames.ShellBannerRegion}" />-->
 
       <!-- Menu Bar -->
       <ContentControl x:Name="MenuBarRegion" 
@@ -43,7 +36,7 @@
                       Style="{DynamicResource ContentControlRegionStyle}" 
                       prism:RegionManager.RegionName="{x:Static constants:RegionNames.ShellMainRegion}" />
 
-      
+
       <!-- Main content split into three regions, two on the left one on the right -->
       <ContentControl x:Name="MultipleAreasMainRegion"
                       Grid.Row="1"
