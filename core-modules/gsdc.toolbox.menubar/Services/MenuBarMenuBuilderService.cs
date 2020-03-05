@@ -1,5 +1,4 @@
 ﻿using gsdc.toolbox.events;
-using gsdc.toolbox.menubar.Factories;
 using Prism.Commands;
 using Prism.Events;
 

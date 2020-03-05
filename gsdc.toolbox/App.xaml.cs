@@ -11,14 +11,10 @@ namespace gsdc.toolbox
         protected override Window CreateShell() 
             => Container.Resolve<MainWindow>();
 
-        protected override void RegisterTypes(IContainerRegistry containerRegistry)
-        {
-            containerRegistry.RegisterSingleton<IToolboxApplicationCommands, ToolboxApplicationCommands>();
-        }
+        protected override void RegisterTypes(IContainerRegistry containerRegistry) 
+            => containerRegistry.RegisterSingleton<IToolboxApplicationCommands, ToolboxApplicationCommands>();
 
-        protected override IModuleCatalog CreateModuleCatalog()
-        {
-            return new DirectoryModuleCatalog() { ModulePath = @".\core-modules" };
-        }
+        protected override IModuleCatalog CreateModuleCatalog() 
+            => new DirectoryModuleCatalog() { ModulePath = ApplicationPath.Get() };
     }
 }

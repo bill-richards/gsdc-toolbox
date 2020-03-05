@@ -25,6 +25,6 @@
     <Folder Include="resources\images\" />
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy /Y $(TargetDir)*.dll $(ProjectDir)..\..\Build\netcoreapp3.1\core-modules\" />
+    <Exec Command="xcopy /Y $(TargetPath) $(ProjectDir)..\..\Build\netcoreapp3.1\core-modules\background\" />
   </Target>
 </Project>

@@ -4,17 +4,7 @@
     <AssemblyName>gsdc.toolbox.menubar.shared</AssemblyName>
     <RootNamespace>gsdc.toolbox.menubar</RootNamespace>
   </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Prism.Wpf" Version="7.2.0.1422" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Update="Views\MenuBar.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Update="Views\MenuBar.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-  </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /Y $(TargetPath) $(ProjectDir)..\..\Build\netcoreapp3.1\core-modules\menu-bar\" />
+  </Target>
 </Project>

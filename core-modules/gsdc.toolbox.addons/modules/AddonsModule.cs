@@ -5,6 +5,7 @@ using Prism.Modularity;
 namespace gsdc.toolbox.addons.modules
 {
     [ModuleDependency("MenubarModule")]
+    [ModuleDependency("CoreModuleLoadingModule")]
     public class AddonsModule : IModule
     {
         public void OnInitialized(IContainerProvider containerProvider)

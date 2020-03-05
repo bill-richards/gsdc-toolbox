@@ -1,5 +1,4 @@
-﻿using System.IO;
-using gsdc.toolbox.menubar;
+﻿using gsdc.toolbox.menubar;
 using Prism.Commands;
 
 namespace gsdc.toolbox.addons.services
@@ -17,7 +16,7 @@ namespace gsdc.toolbox.addons.services
             menuService.AddMenuItem(infoFactory.CreateMenuInfo("_Load Add Ons",
                 AddOnsMenuNames.LoadAdonsMenuItem,
                 AddOnsMenuNames.MainMenu,
-                new DelegateCommand(() => addOnService.LoadAddOns($"{Directory.GetCurrentDirectory()}\\add-ons"))));
+                new DelegateCommand(() => addOnService.LoadAddOns(ApplicationPath.GetSubDirectory("add-ons")))));
         }
     }
 }

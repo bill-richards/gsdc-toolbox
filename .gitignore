@@ -348,8 +348,9 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
-/Build/netcoreapp3.1
+/Build
 /NDependOut
 /NDependOut1
 /gsdc-toolbox.ndproj
 /gsdc-toolbox1.ndproj
+/Visual Studio 2019/Visualizers
