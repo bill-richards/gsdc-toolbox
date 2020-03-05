@@ -19,8 +19,6 @@ namespace gsdc.toolbox.menubar.ViewModels
         private void MenuItemAdded(IMenuInfo newMenuInfo)
         {
             if (newMenuInfo.ParentName != ToolboxMenuNames.ToolboxMenuBar) return;
-
-            var cache = MenuItems.ToList();
             AddThisMenuItem(ref newMenuInfo);
         }
 
