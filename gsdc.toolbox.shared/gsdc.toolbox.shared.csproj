@@ -4,12 +4,6 @@
     <UseWPF>true</UseWPF>
     <RootNamespace>gsdc.toolbox</RootNamespace>
   </PropertyGroup>
-  <ItemGroup>
-    <Compile Remove="resources\images\**" />
-    <EmbeddedResource Remove="resources\images\**" />
-    <None Remove="resources\images\**" />
-    <Page Remove="resources\images\**" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Prism.Core" Version="7.2.0.1422" />
@@ -18,11 +12,9 @@
   <ItemGroup>
     <Page Update="resources\DefaultColourScheme.xaml">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
     </Page>
     <Page Update="resources\ToolboxSpecific.xaml">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
   </ItemGroup>
 </Project>

@@ -1,4 +1,4 @@
-﻿using System.IO;
+﻿using gsdc.toolbox;
 using gsdc.toolbox.addons;
 
 namespace themes.services
@@ -11,6 +11,6 @@ namespace themes.services
             => _addOnService = addOnService;
 
         public void FindThemes() 
-            => _addOnService.LoadAddOns($"{Directory.GetCurrentDirectory()}\\themes");
+            => _addOnService.LoadAddOns(ApplicationPath.GetSubDirectory("add-ons", "theming", "themes"));
     }
 }

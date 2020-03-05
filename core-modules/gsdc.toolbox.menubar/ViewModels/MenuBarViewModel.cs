@@ -1,6 +1,5 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
-using gsdc.toolbox.menubar.Factories;
 using Prism.Mvvm;
 
 namespace gsdc.toolbox.menubar.ViewModels

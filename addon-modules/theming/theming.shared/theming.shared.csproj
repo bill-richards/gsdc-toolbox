@@ -3,8 +3,9 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
-    <AssemblyName>themes.shared</AssemblyName>
     <RootNamespace>themes</RootNamespace>
   </PropertyGroup>
-
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="XCOPY /Y $(TargetPath) $(ProjectDir)..\..\..\Build\netcoreapp3.1\add-ons\theming\" />
+  </Target>
 </Project>

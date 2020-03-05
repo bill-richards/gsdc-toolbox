@@ -1,5 +1,4 @@
 ﻿using System;
-using gsdc.toolbox.menubar.Factories;
 
 namespace gsdc.toolbox.menubar.Services
 {

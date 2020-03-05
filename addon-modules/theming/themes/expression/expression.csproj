@@ -2,10 +2,13 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
-    <AssemblyName>expression.themes</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Prism.Wpf" Version="7.2.0.1422" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\core-modules\gsdc.toolbox.menubar.shared\gsdc.toolbox.menubar.shared.csproj" />
+    <ProjectReference Include="..\..\theming.shared\theming.shared.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Page Update="resources\ExpressionDark.xaml">
@@ -15,11 +18,7 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\core-modules\gsdc.toolbox.menubar.shared\gsdc.toolbox.menubar.shared.csproj" />
-    <ProjectReference Include="..\themes.shared\themes.shared.csproj" />
-  </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="XCOPY /Y $(TargetDir)$(TargetFileName) $(ProjectDir)..\..\Build\netcoreapp3.1\themes\" />
+    <Exec Command="XCOPY /Y $(TargetPath) $(ProjectDir)..\..\..\..\Build\netcoreapp3.1\add-ons\theming\themes\" />
   </Target>
 </Project>

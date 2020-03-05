@@ -4,4 +4,7 @@
     <AssemblyName>gsdc.toolbox.addons.shared</AssemblyName>
     <RootNamespace>gsdc.toolbox.addons</RootNamespace>
   </PropertyGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /Y $(TargetPath) $(ProjectDir)..\..\Build\netcoreapp3.1\core-modules\add-ons\" />
+  </Target>
 </Project>
