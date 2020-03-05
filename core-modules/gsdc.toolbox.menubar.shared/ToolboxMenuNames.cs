@@ -1,4 +1,4 @@
-﻿namespace gsdc.toolbox.menus
+﻿namespace gsdc.toolbox.menubar
 {
     public static class ToolboxMenuNames
     {

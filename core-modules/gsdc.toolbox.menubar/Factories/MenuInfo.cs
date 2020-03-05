@@ -1,5 +1,4 @@
 ﻿using System.Windows.Input;
-using gsdc.toolbox.menus;
 
 namespace gsdc.toolbox.menubar.Factories
 {

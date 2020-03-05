@@ -1,7 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
-using gsdc.toolbox.menus;
 using Prism.Mvvm;
 
 namespace gsdc.toolbox.menubar.ViewModels

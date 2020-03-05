@@ -1,7 +1,6 @@
 ﻿using System;
-using gsdc.toolbox.menubar;
 
-namespace gsdc.toolbox.menus
+namespace gsdc.toolbox.menubar
 {
     public interface IMenuService
     {
