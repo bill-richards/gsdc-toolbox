@@ -13,6 +13,8 @@
   xmlns:d="http://schemas.microsoft.com/expression/blend/2008">
 
     <SolidColorBrush x:Key="OutsideFontColor" Color="#FF000000" />
+    <SolidColorBrush x:Key="CompanyNameColor" Color="#FFC5BC25" />
+    <SolidColorBrush x:Key="ApplicationNameColor" Color="#FFC4CFD6" />
 
     <LinearGradientBrush x:Key="NormalBrush" EndPoint="0.5,1" StartPoint="0.5,0">
         <GradientStop Color="#FFFFFFFF" Offset="0" />

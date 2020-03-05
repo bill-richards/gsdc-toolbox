@@ -14,6 +14,9 @@
 
 
     <!-- Color Palette -->
+    <SolidColorBrush x:Key="CompanyNameColor" Color="#FF7682E4" />
+    <SolidColorBrush x:Key="ApplicationNameColor" Color="#FF425080" />
+
     <SolidColorBrush x:Key="OutsideFontColor" Color="#FF000000"/>
     <SolidColorBrush x:Key="ButtonFontColor" Color="#FF042271"/>
     <SolidColorBrush x:Key="TextBrush" Color="#FF000000" />

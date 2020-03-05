@@ -14,6 +14,9 @@
 
     <!-- Main Colors -->
 
+    <SolidColorBrush x:Key="CompanyNameColor" Color="#FFC5BC25" />
+    <SolidColorBrush x:Key="ApplicationNameColor" Color="#FF0A3E69" />
+
     <Color x:Key="MainColor">#FF939393</Color>
     <Color x:Key="HoverColor">#FFAAAAAA</Color>
     <Color x:Key="DefaultColor">#FF9BB1C5</Color>
