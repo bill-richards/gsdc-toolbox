@@ -30,6 +30,7 @@ namespace gsdc.toolbox.menubar.ViewModels
             Header = info.DisplayText;
             Command = info.Command;
             CommandParameter = info.CommandParameter;
+            Icon = info.Icon;
         }
 
         private void AddChildMenuItemIfIAmTheParent(IMenuInfo newMenuInfo)
@@ -55,6 +56,7 @@ namespace gsdc.toolbox.menubar.ViewModels
 
         public string Header { get; }
         public string Name { get; }
+        public dynamic Icon { get; }
         public ObservableCollection<object> MenuItems { get; }
         public ICommand Command { get; }
         public object CommandParameter { get; }

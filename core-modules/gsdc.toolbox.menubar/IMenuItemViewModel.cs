@@ -8,6 +8,8 @@ namespace gsdc.toolbox.menubar
         string Header { get; }
         string Name { get; }
 
+        dynamic Icon { get; }
+
         ObservableCollection<object> MenuItems { get; }
 
         ICommand Command { get; }

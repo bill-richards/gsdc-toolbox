@@ -24,6 +24,7 @@ namespace gsdc.toolbox.menubar.Factories
             menuItem.Header = vm.Header;
             menuItem.Name = GetValidMenuNameFromGuid(vm.Name);
             menuItem.ItemsSource = vm.MenuItems;
+            menuItem.Icon = vm.Icon;
 
             return menuItem;
         }

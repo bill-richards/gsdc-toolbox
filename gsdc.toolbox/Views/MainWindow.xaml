@@ -6,7 +6,9 @@
         prism:ViewModelLocator.AutoWireViewModel="True"
         Icon="../resources/images/Toolbox.ico"
         Title="{Binding Title}" 
-        Height="640" Width="910" WindowStyle="SingleBorderWindow">
+        Height="600" Width="800" 
+        WindowStyle="SingleBorderWindow" 
+        Loaded="Window_Loaded">
    <Grid>
       <Grid.RowDefinitions>
          <RowDefinition Height="30" />
