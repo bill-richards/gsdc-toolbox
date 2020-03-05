@@ -2,5 +2,5 @@
 
 namespace gsdc.toolbox.events
 {
-    public class ShutDownTheToolbox : PubSubEvent { }
+    public sealed class ShutDownTheToolbox : PubSubEvent { }
 }

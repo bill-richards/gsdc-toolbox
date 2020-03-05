@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Prism.Modularity;
 
-namespace gsdc.toolbox.addons.Services
+namespace gsdc.toolbox.addons.services
 {
     internal class AddOnService : IAddOnService
     {

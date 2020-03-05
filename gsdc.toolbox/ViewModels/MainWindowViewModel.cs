@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Windows;
 using gsdc.toolbox.commands;
 using gsdc.toolbox.events;
 using Prism.Commands;
@@ -19,6 +20,7 @@ namespace gsdc.toolbox.ViewModels
             _applicationCommands.CloseApplicationGracefully.RegisterCommand(CloseApplicationGracefully);
 
             eventAggregator.GetEvent<ShutDownTheToolbox>().Subscribe(AppExit, ThreadOption.UIThread);
+            eventAggregator.GetEvent<AddResourceDictionary>().Subscribe(themeDictionary => Application.Current.Resources.MergedDictionaries.Add(themeDictionary), ThreadOption.UIThread);
         }
 
         private DelegateCommand CloseApplicationGracefully { get; }

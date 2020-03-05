@@ -5,8 +5,8 @@
    <Application.Resources>
       <ResourceDictionary>
          <ResourceDictionary.MergedDictionaries>
-            <ResourceDictionary Source="pack://application:,,,/gsdc.toolbox.shared;Component/resources/dictionaries/DefaultColourScheme.xaml" />
-            <ResourceDictionary Source="pack://application:,,,/gsdc.toolbox.shared;Component/resources/dictionaries/ToolboxSpecific.xaml" />
+            <ResourceDictionary Source="pack://application:,,,/gsdc.toolbox.shared;Component/resources/DefaultColourScheme.xaml" />
+            <ResourceDictionary Source="pack://application:,,,/gsdc.toolbox.shared;Component/resources/ToolboxSpecific.xaml" />
          </ResourceDictionary.MergedDictionaries>
       </ResourceDictionary>
    </Application.Resources>

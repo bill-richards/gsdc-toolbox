@@ -1,0 +1,164 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    mc:Ignorable="d" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:toolbox="clr-namespace:gsdc.toolbox">
+
+   <!-- Converters -->
+   <toolbox:MultiplyConverter x:Key="MultiplyConverter" />
+
+   <!-- Colours -->
+   <Color x:Key="YellowLinkColor">#FFC300</Color>
+   <Color x:Key="LinkColor">#FF5733</Color>
+
+   <!-- Brushes -->
+   <SolidColorBrush x:Key="LinkBrush" Color="{StaticResource YellowLinkColor}" />
+   <SolidColorBrush x:Key="SplitterBrush" Color="{StaticResource LinkColor}" />
+
+   <!-- - - - - - - - - - - - -
+      - Named Control Styles  -
+      - - - - - - - - - - - - -->
+
+   <Style x:Key="RightAlignedTitle" TargetType="{x:Type TextBlock}">
+      <Setter Property="FontSize" Value="15" />
+      <Setter Property="Padding" Value="0,0,10,5" />
+      <Setter Property="HorizontalAlignment" Value="Right" />
+      <Setter Property="Foreground" Value="DodgerBlue" />
+   </Style>
+
+   <Style x:Key="ApplicationsSplitter" TargetType="{x:Type Border}">
+      <Setter Property="Background" Value="{DynamicResource SplitterBrush}" />
+      <Setter Property="Margin" Value="10,0,10,0" />
+      <Setter Property="HorizontalAlignment" Value="Stretch" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+      <Setter Property="Height" Value="3" />
+      <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+   </Style>
+
+   <Style x:Key="LinkButton" TargetType="{x:Type Button}">
+      <Setter Property="Foreground" Value="{StaticResource LinkBrush}"/>
+      <Setter Property="Margin" Value="10,4,10,4" />
+      <Setter Property="FontSize" Value="11" />
+      <Setter Property="HorizontalAlignment" Value="Left" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+      <Setter Property="OverridesDefaultStyle" Value="True" />
+
+      <Setter Property="Template">
+         <Setter.Value>
+            <ControlTemplate TargetType="{x:Type Button}">
+               <ContentControl>
+                  <ContentPresenter x:Name="Presenter"
+                                       HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}" 
+                                       Margin="{TemplateBinding Margin}" 
+                                       RecognizesAccessKey="True" 
+                                       Opacity="{TemplateBinding Opacity}"
+                                       TextBlock.FontSize="{TemplateBinding FontSize}"
+                                       TextBlock.Foreground="{TemplateBinding Foreground}"/>
+               </ContentControl>
+            </ControlTemplate>
+         </Setter.Value>
+      </Setter>
+      <Style.Triggers>
+         <Trigger Property="IsMouseOver" Value="True">
+            <Setter Property="Foreground" Value="{StaticResource SplitterBrush}"/>
+            <Setter Property="Opacity" Value=".66"  />
+         </Trigger>
+         <Trigger Property="IsPressed" Value="True">
+            <Setter Property="Opacity" Value="1"  />
+            <Setter Property="Foreground" Value="{StaticResource LinkBrush}"/>
+         </Trigger>
+      </Style.Triggers>
+   </Style>
+
+   <!-- - - - - - - - - - - - - -
+      - Un-named Control Styles -
+      - - - - - - - - - - - - - -->
+
+   <!-- Work in progress -->
+
+   <Style x:Key="AnimatedExpanderStyle" TargetType="{x:Type Expander}">
+      <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+      <Setter Property="VerticalContentAlignment" Value="Stretch" />
+      <Setter Property="BorderBrush" Value="Transparent" />
+      <Setter Property="BorderThickness" Value="1" />
+      <Setter Property="Template">
+         <Setter.Value>
+            <ControlTemplate TargetType="{x:Type Expander}">
+               <Border SnapsToDevicePixels="true" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1,1,1,1" CornerRadius="3">
+                  <DockPanel x:Name="dockPanel">
+                     <ToggleButton FontFamily="{TemplateBinding FontFamily}" FontSize="{TemplateBinding FontSize}" FontStretch="{TemplateBinding FontStretch}" FontStyle="{TemplateBinding FontStyle}" FontWeight="{TemplateBinding FontWeight}" Foreground="{TemplateBinding Foreground}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" FocusVisualStyle="{StaticResource ExpanderHeaderFocusVisual}" Margin="1,1,1,0" MinHeight="0" MinWidth="0" x:Name="HeaderSite" Style="{StaticResource ExpanderDownHeaderStyle}" Content="{TemplateBinding Header}" ContentTemplate="{TemplateBinding HeaderTemplate}" ContentTemplateSelector="{TemplateBinding HeaderTemplateSelector}" IsChecked="{Binding Path=IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" DockPanel.Dock="Top" />
+                     <!--<ScrollViewer x:Name="ExpanderContentScrollView" DockPanel.Dock="Right"
+                                   HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"
+                                   HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                        <ScrollViewer.Tag>
+                           <system:Double>0.0</system:Double>
+                        </ScrollViewer.Tag>
+                        <ScrollViewer.Width>
+                           <MultiBinding Converter="{StaticResource MultiplyConverter}">
+                              <Binding Path="ActualHeight" ElementName="border"/>
+                              <Binding Path="Tag" RelativeSource="{RelativeSource Self}" />
+                           </MultiBinding>
+                        </ScrollViewer.Width>-->
+                     <Border Visibility="Collapsed" Background="{DynamicResource ShadeBrush}" BorderBrush="{DynamicResource NormalBorderBrush}" BorderThickness="1,0,1,1" CornerRadius="3,3,3,3" x:Name="border" Margin="1,1,1,1">
+                        <!--<Border Background="{DynamicResource ShadeBrush}" BorderBrush="{DynamicResource NormalBorderBrush}" BorderThickness="1,0,1,1" CornerRadius="3,3,3,3" x:Name="border" Margin="1,1,1,1">-->
+                        <ContentPresenter Focusable="false" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="1,1,1,1" x:Name="ExpandSite" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" DockPanel.Dock="Bottom" />
+                     </Border>
+                     <!--</ScrollViewer>-->
+                  </DockPanel>
+               </Border>
+               <ControlTemplate.Triggers>
+                  <!--<Trigger Property="IsExpanded" Value="True">
+                     <Trigger.EnterActions>
+                        <BeginStoryboard>
+                           <Storyboard>
+                              <DoubleAnimation Storyboard.TargetName="ExpanderContentScrollView"
+                                               Storyboard.TargetProperty="Tag"
+                                               To="1"
+                                               Duration="0:0:0.4"/>
+                           </Storyboard>
+                        </BeginStoryboard>
+                     </Trigger.EnterActions>
+                     <Trigger.ExitActions>
+                        <BeginStoryboard>
+                           <Storyboard>
+                              <DoubleAnimation Storyboard.TargetName="ExpanderContentScrollView"
+                                               Storyboard.TargetProperty="Tag"
+                                               To="0"
+                                               Duration="0:0:0.4"/>
+                           </Storyboard>
+                        </BeginStoryboard>
+                     </Trigger.ExitActions>
+                  </Trigger>-->
+
+                  <Trigger Property="IsExpanded" Value="true">
+                     <Setter Property="Visibility" TargetName="border" Value="Visible" />
+                  </Trigger>
+                  <Trigger Property="ExpandDirection" Value="Down" />
+                  <Trigger Property="ExpandDirection" Value="Right">
+                     <Setter Property="DockPanel.Dock" TargetName="ExpandSite" Value="Right" />
+                     <Setter Property="DockPanel.Dock" TargetName="HeaderSite" Value="Left" />
+                     <Setter Property="Style" TargetName="HeaderSite" Value="{StaticResource ExpanderRightHeaderStyle}" />
+                  </Trigger>
+                  <Trigger Property="ExpandDirection" Value="Up">
+                     <Setter Property="DockPanel.Dock" TargetName="ExpandSite" Value="Top" />
+                     <Setter Property="DockPanel.Dock" TargetName="HeaderSite" Value="Bottom" />
+                     <Setter Property="Style" TargetName="HeaderSite" Value="{StaticResource ExpanderUpHeaderStyle}" />
+                  </Trigger>
+                  <Trigger Property="ExpandDirection" Value="Left">
+                     <Setter Property="DockPanel.Dock" TargetName="ExpandSite" Value="Left" />
+                     <Setter Property="DockPanel.Dock" TargetName="HeaderSite" Value="Right" />
+                     <Setter Property="Style" TargetName="HeaderSite" Value="{StaticResource ExpanderLeftHeaderStyle}" />
+                  </Trigger>
+                  <Trigger Property="IsEnabled" Value="false">
+                     <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                  </Trigger>
+               </ControlTemplate.Triggers>
+            </ControlTemplate>
+         </Setter.Value>
+      </Setter>
+   </Style>
+
+</ResourceDictionary>
