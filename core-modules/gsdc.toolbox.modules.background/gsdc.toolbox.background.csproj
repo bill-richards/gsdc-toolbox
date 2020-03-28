@@ -9,9 +9,6 @@
     <PackageReference Include="Prism.Wpf" Version="7.2.0.1422" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\gsdc.toolbox.shared\gsdc.toolbox.shared.csproj" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="resources\images\tb_img.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
@@ -23,6 +20,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="resources\images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\gsdc.toolbox\gsdc.toolbox.csproj" />
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="xcopy /Y $(TargetPath) $(ProjectDir)..\..\Build\netcoreapp3.1\core-modules\background\" />
