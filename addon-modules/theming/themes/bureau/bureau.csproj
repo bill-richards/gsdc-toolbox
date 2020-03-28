@@ -7,8 +7,8 @@
     <PackageReference Include="Prism.Wpf" Version="7.2.0.1422" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\core-modules\gsdc.toolbox.menubar.shared\gsdc.toolbox.menubar.shared.csproj" />
-    <ProjectReference Include="..\..\theming.shared\theming.shared.csproj" />
+    <ProjectReference Include="..\..\..\..\core-modules\gsdc.toolbox.menubar\gsdc.toolbox.menubar.csproj" />
+    <ProjectReference Include="..\..\theming\theming.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Page Update="resources\BureauBlack.xaml">

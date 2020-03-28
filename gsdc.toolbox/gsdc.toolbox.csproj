@@ -1,28 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
-    <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
-    <AssemblyName>gsdc.toolbox</AssemblyName>
-    <ApplicationIcon>resources\images\Toolbox.ico</ApplicationIcon>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>..\Build\</OutputPath>
-  </PropertyGroup>
+
   <ItemGroup>
-    <None Remove="resources\tb_img.png" />
-    <None Remove="resources\Toolbox.ico" />
-    <None Remove="Toolbox.ico" />
+    <PackageReference Include="Prism.Core" Version="7.2.0.1422" />
   </ItemGroup>
+
   <ItemGroup>
-    <PackageReference Include="Prism.Unity" Version="7.2.0.1422" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\gsdc.toolbox.shared\gsdc.toolbox.shared.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="resources\images\Toolbox.ico">
+    <Page Update="resources\DefaultColourScheme.xaml">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
+    </Page>
+    <Page Update="resources\ToolboxSpecific.xaml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Page>
   </ItemGroup>
 </Project>
