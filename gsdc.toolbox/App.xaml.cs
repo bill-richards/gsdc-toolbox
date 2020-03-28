@@ -1,4 +1,5 @@
-﻿using Prism.Ioc;
+﻿using System.IO;
+using Prism.Ioc;
 using gsdc.toolbox.Views;
 using System.Windows;
 using gsdc.toolbox.commands;
@@ -11,10 +12,13 @@ namespace gsdc.toolbox
         protected override Window CreateShell() 
             => Container.Resolve<MainWindow>();
 
-        protected override void RegisterTypes(IContainerRegistry containerRegistry) 
-            => containerRegistry.RegisterSingleton<IToolboxApplicationCommands, ToolboxApplicationCommands>();
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
+        {
+            containerRegistry.RegisterSingleton<IToolboxApplicationCommands, ToolboxApplicationCommands>();
+            containerRegistry.RegisterSingleton<IApplicationService, ApplicationService>();
+        }
 
         protected override IModuleCatalog CreateModuleCatalog() 
-            => new DirectoryModuleCatalog() { ModulePath = ApplicationPath.Get() };
+            => new DirectoryModuleCatalog() { ModulePath = Directory.GetCurrentDirectory() };
     }
 }

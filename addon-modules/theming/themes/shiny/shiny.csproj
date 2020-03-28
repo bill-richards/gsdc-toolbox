@@ -19,6 +19,6 @@
     </Page>
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="XCOPY /Y $(TargetPath) $(ProjectDir)..\..\..\..\Build\netcoreapp3.1\add-ons\theming\themes\" />
+    <Exec Command="XCOPY /Y $(TargetPath) $(ProjectDir)..\..\..\..\Build\netcoreapp3.1\add-on-modules\theming\themes\" />
   </Target>
 </Project>

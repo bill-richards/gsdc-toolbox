@@ -8,10 +8,8 @@ namespace gsdc.toolbox.addons.modules
     [ModuleDependency("CoreModuleLoadingModule")]
     public class AddonsModule : IModule
     {
-        public void OnInitialized(IContainerProvider containerProvider)
-        {
-            containerProvider.Resolve<AddOnsMenuBuilderService>();
-        }
+        public void OnInitialized(IContainerProvider containerProvider) 
+            => containerProvider.Resolve<AddOnsMenuBuilderService>();
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
