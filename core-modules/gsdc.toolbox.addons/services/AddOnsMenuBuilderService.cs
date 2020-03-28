@@ -5,7 +5,7 @@ namespace gsdc.toolbox.addons.services
 {
     internal class AddOnsMenuBuilderService
     {
-        public AddOnsMenuBuilderService(IMenuInfoFactory infoFactory, IMenuService menuService, IAddOnService addOnService)
+        public AddOnsMenuBuilderService(IMenuInfoFactory infoFactory, IMenuService menuService, IAddOnService addOnService, IApplicationService applicationService)
         {
             menuService.AddMenuItem(infoFactory.CreateMenuSeparatorInfo(ToolboxMenuNames.ToolboxMenu));
 
@@ -16,7 +16,7 @@ namespace gsdc.toolbox.addons.services
             menuService.AddMenuItem(infoFactory.CreateMenuInfo("_Load Add Ons",
                 AddOnsMenuNames.LoadAdonsMenuItem,
                 AddOnsMenuNames.MainMenu,
-                new DelegateCommand(() => addOnService.LoadAddOns(ApplicationPath.GetSubDirectory("add-ons")))));
+                new DelegateCommand(() => addOnService.LoadAddOns(applicationService.AddOnsDirectory))));
         }
     }
 }

@@ -6,7 +6,6 @@ namespace gsdc.toolbox.menubar
     {
         IMenuInfo CreateMenuInfo(string displayText, string name, string parentMenuName, ICommand command = null, dynamic commandParameter = null);
         IMenuInfo CreateMenuInfo(string displayText, string name, string parentMenuName, dynamic icon, ICommand command = null, dynamic commandParameter = null);
-
         IMenuInfo CreateMenuSeparatorInfo(string parentMenuName);
     }
 }

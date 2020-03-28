@@ -6,9 +6,9 @@ namespace gsdc.toolbox.module.loader.modules
 {
     public class CoreModuleLoadingModule : IModule
     {
-        public void OnInitialized(IContainerProvider containerProvider) 
-            => containerProvider.Resolve<IModuleLoader>().ScanAndLoadModules(ApplicationPath.GetSubDirectory("core-modules"));
-        
+        public void OnInitialized(IContainerProvider containerProvider) => 
+            containerProvider.Resolve<IModuleLoader>().ScanAndLoadModules(containerProvider.Resolve<IApplicationService>().CoreModulesDirectory);
+
         public void RegisterTypes(IContainerRegistry containerRegistry) 
             => containerRegistry.Register<IModuleLoader, ModuleLoader>();
     }
