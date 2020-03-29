@@ -10,6 +10,8 @@ namespace gsdc.toolbox.menubar
 
         dynamic Icon { get; }
 
+        string ToolTip { get; }
+
         ObservableCollection<object> MenuItems { get; }
 
         ICommand Command { get; }

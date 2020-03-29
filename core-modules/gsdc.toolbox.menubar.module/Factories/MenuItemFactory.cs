@@ -25,19 +25,15 @@ namespace gsdc.toolbox.menubar.Factories
             menuItem.Name = GetValidMenuNameFromGuid(vm.Name);
             menuItem.ItemsSource = vm.MenuItems;
             menuItem.Icon = vm.Icon;
+            menuItem.ToolTip = vm.ToolTip;
 
             return menuItem;
         }
-        public Separator CreateSeparator()
-        {
-            return _newMenuSeparator();
-        }
 
-        public string GetValidMenuNameFromGuid(string guid)
-        {
-            var name = guid.Replace("}", "").Replace("{", "").Replace("-", "");
-            if (char.IsDigit(name[0])) name = $"_{name}";
-            return name;
-        }
+        public Separator CreateSeparator() 
+            => _newMenuSeparator();
+
+        public string GetValidMenuNameFromGuid(string guid) 
+            => $"_{guid.Replace("}", "").Replace("{", "").Replace("-", "_")}";
     }
 }

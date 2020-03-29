@@ -16,6 +16,7 @@ namespace gsdc.toolbox.addons.services
             menuService.AddMenuItem(infoFactory.CreateMenuInfo("_Load Add Ons",
                 AddOnsMenuNames.LoadAdonsMenuItem,
                 AddOnsMenuNames.MainMenu,
+                "Load all add on modules from the application's add-on-modules directory",
                 new DelegateCommand(() => addOnService.LoadAddOns(applicationService.AddOnsDirectory))));
         }
     }
