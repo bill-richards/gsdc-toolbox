@@ -4,11 +4,12 @@ namespace gsdc.toolbox.menubar
 {
     public interface IMenuInfo
     {
-        dynamic Icon { get; }
-        string DisplayText { get; }
-        string Name { get; }
-        string ParentName { get; }
         ICommand Command { get; }
         object CommandParameter { get; }
+        string DisplayText { get; }
+        dynamic Icon { get; }
+        string Name { get; }
+        string ParentName { get; }
+        string ToolTip { get; }
     }
 }
