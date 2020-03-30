@@ -33,7 +33,7 @@
       <!-- Main content single region -->
       <ContentControl x:Name="SingleMainRegion"
                       Grid.Row="1" 
-                      Margin="25,0,0,0"
+                      Margin="0,0,0,0"
                       VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"
                       Style="{DynamicResource ContentControlRegionStyle}" 
                       prism:RegionManager.RegionName="{x:Static constants:RegionNames.ShellMainRegion}" />
@@ -42,7 +42,7 @@
       <!-- Main content split into three regions, two on the left one on the right -->
       <ContentControl x:Name="MultipleAreasMainRegion"
                       Grid.Row="1"
-                      Margin="25,0,0,0"
+                      Margin="0,0,0,0"
                       Style="{DynamicResource ContentControlRegionStyle}"
                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
          <Grid>
@@ -61,11 +61,29 @@
                             Style="{DynamicResource ContentControlRegionStyle}"
                             prism:RegionManager.RegionName="{x:Static constants:RegionNames.ShellTopLeftRegion}" />
 
+            <!-- Top Region -->
+            <ContentControl Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
+                            
+                            Style="{DynamicResource ContentControlRegionStyle}"
+                            prism:RegionManager.RegionName="{x:Static constants:RegionNames.ShellTopRegion}" />
+
+            <!-- Bottom Region -->
+            <ContentControl Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
+                            VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"
+                            Style="{DynamicResource ContentControlRegionStyle}"
+                            prism:RegionManager.RegionName="{x:Static constants:RegionNames.ShellBottomRegion}" />
+
             <!-- BottomLeft Region -->
             <ContentControl Grid.Column="0" Grid.Row="1"
                             VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"
                             Style="{DynamicResource ContentControlRegionStyle}"
                             prism:RegionManager.RegionName="{x:Static constants:RegionNames.ShellBottomLeftRegion}" />
+
+            <!-- Left Region -->
+            <ContentControl Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" 
+                            VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"
+                            Style="{DynamicResource ContentControlRegionStyle}" 
+                            prism:RegionManager.RegionName="{x:Static constants:RegionNames.ShellLeftRegion}" />
 
             <!-- Right Region -->
             <ContentControl Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" 

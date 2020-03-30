@@ -2,17 +2,13 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
-    <AssemblyName>gsdc.toolbox.addons.impl</AssemblyName>
-    <RootNamespace>gsdc.toolbox.addons</RootNamespace>
+    <AssemblyName>gsdc.toolbox.dialogs</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Prism.Wpf" Version="7.2.0.1422" />
+    <PackageReference Include="Prism.Wpf" Version="7.2.0.1367" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\gsdc.toolbox\gsdc.toolbox.csproj" />
-    <ProjectReference Include="..\gsdc.toolbox.addons\gsdc.toolbox.addons.csproj" />
-    <ProjectReference Include="..\gsdc.toolbox.dialogs\gsdc.toolbox.dialogs.csproj" />
-    <ProjectReference Include="..\gsdc.toolbox.menubar\gsdc.toolbox.menubar.csproj" />
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="xcopy /Y $(TargetPath) $(ProjectDir)..\..\Build\netcoreapp3.1\core-modules\add-ons\" />
