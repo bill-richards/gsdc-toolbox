@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>gsdc.toolbox.background</AssemblyName>
+    <RootNamespace>gsdc.toolbox.modules.background</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Prism.Wpf" Version="7.2.0.1422" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\images\tb_img.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Banner.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="resources\images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\gsdc.toolbox\gsdc.toolbox.csproj" />
+  </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /Y $(TargetPath) $(ProjectDir)..\..\..\Build\netcoreapp3.1\core-modules\background\" />
+  </Target>
+</Project>

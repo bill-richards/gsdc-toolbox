@@ -2,9 +2,9 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
-    <AssemblyName>gsdc.toolbox.addons</AssemblyName>
+    <AssemblyName>gsdc.toolbox.menubar</AssemblyName>
   </PropertyGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy /Y $(TargetPath) $(ProjectDir)..\..\Build\netcoreapp3.1\core-modules\add-ons\" />
+    <Exec Command="xcopy /Y $(TargetPath) $(ProjectDir)..\..\..\Build\netcoreapp3.1\core-modules\menu-bar\" />
   </Target>
 </Project>
