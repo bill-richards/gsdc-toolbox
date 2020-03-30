@@ -11,7 +11,10 @@ namespace gsdc.toolbox
       public static readonly string ShellToolboxMenu = "{E0CE475B-D185-4ED7-B565-BD0E70CBD3A5}";
       public static readonly string ShellMainRegion = "{5CA8814F-9EA0-4FAC-A607-E75E30154A49}";
       public static readonly string ShellBottomLeftRegion = "{A8A14CFB-6EE9-4DEC-8B85-DF84588F6443}";
+      public static readonly string ShellLeftRegion = "{BCE60E56-A10D-4ECC-90D9-F22AB6FC672E}";
       public static readonly string ShellRightRegion = "{8E3E23AD-8737-4386-97B2-DE88664310DA}";
+      public static readonly string ShellTopRegion = "{871871B2-2AB4-43AB-A8ED-B6A5D605B6D4}";
+      public static readonly string ShellBottomRegion = "{E9944D75-84D9-4C49-A9B2-5F8618FC3288}";
       public static readonly string ShellTopLeftRegion = "{C1864A6A-681B-4A21-9FEE-97F3A44E2E7C}";
       public static readonly string ShellToolbarRegion = "{7B2A49BF-34E0-43D7-A2EF-B5963E5765E7}";
       public static readonly string ShellOverlayRegion = "{658330B3-4F45-4358-BE58-F963A7525532}";
@@ -25,7 +28,10 @@ namespace gsdc.toolbox
          {"ShellApplicationsRegion", ShellApplicationsRegion },
          {"ShellMenu", ShellMenu },
          {"ShellMainRegion", ShellMainRegion },
+         {"ShellTopRegion", ShellTopRegion },
+         {"ShellBottomRegion", ShellBottomRegion },
          {"ShellTopLeftRegion", ShellTopLeftRegion },
+         {"ShellLeftRegion", ShellLeftRegion },
          {"ShellRightRegion", ShellRightRegion },
          {"ShellBottomLeftRegion", ShellBottomLeftRegion },
          {"ShellToolboxMenu", ShellToolboxMenu },
