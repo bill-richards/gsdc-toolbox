@@ -8,7 +8,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\theming\theming.csproj" />
-    <ProjectReference Include="..\..\..\..\core-modules\gsdc.toolbox.menubar\gsdc.toolbox.menubar.csproj" />
+    <ProjectReference Include="..\..\..\..\core-modules\menu-bar\gsdc.toolbox.menubar\gsdc.toolbox.menubar.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Page Update="resources\ExpressionDark.xaml">

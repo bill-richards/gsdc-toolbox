@@ -8,8 +8,8 @@
     <PackageReference Include="Prism.Wpf" Version="7.2.0.1422" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\core-modules\gsdc.toolbox.addons\gsdc.toolbox.addons.csproj" />
-    <ProjectReference Include="..\..\..\core-modules\gsdc.toolbox.menubar\gsdc.toolbox.menubar.csproj" />
+    <ProjectReference Include="..\..\..\core-modules\add-ons\gsdc.toolbox.addons\gsdc.toolbox.addons.csproj" />
+    <ProjectReference Include="..\..\..\core-modules\menu-bar\gsdc.toolbox.menubar\gsdc.toolbox.menubar.csproj" />
     <ProjectReference Include="..\..\..\gsdc.toolbox\gsdc.toolbox.csproj" />
     <ProjectReference Include="..\theming\theming.csproj" />
   </ItemGroup>

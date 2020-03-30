@@ -5,13 +5,13 @@ VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core-modules", "core-modules", "{D3BAD681-14D1-42E5-AE4E-34F3CAB4C7FC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gsdc.toolbox.background", "core-modules\gsdc.toolbox.modules.background\gsdc.toolbox.background.csproj", "{E898C1DA-DC20-4CE7-8AE5-49A2787C59A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gsdc.toolbox.background", "core-modules\background\gsdc.toolbox.modules.background\gsdc.toolbox.background.csproj", "{E898C1DA-DC20-4CE7-8AE5-49A2787C59A4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gsdc.toolbox.menubar", "core-modules\gsdc.toolbox.menubar\gsdc.toolbox.menubar.csproj", "{41DE80B1-2016-4D18-BBFB-ED254B248816}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gsdc.toolbox.menubar", "core-modules\menu-bar\gsdc.toolbox.menubar\gsdc.toolbox.menubar.csproj", "{41DE80B1-2016-4D18-BBFB-ED254B248816}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "add-ons", "add-ons", "{41BF65A9-8529-4727-BEF4-D1A2C4167BB9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gsdc.toolbox.addons", "core-modules\gsdc.toolbox.addons\gsdc.toolbox.addons.csproj", "{7C9CA1BC-0106-4FFF-9B10-FC948A9A6330}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gsdc.toolbox.addons", "core-modules\add-ons\gsdc.toolbox.addons\gsdc.toolbox.addons.csproj", "{7C9CA1BC-0106-4FFF-9B10-FC948A9A6330}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "theming", "theming", "{C9A9EC39-B8EA-476C-87F2-3B1F152E85D2}"
 EndProject
@@ -37,13 +37,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "theming.module", "addon-mod
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gsdc.toolbox.app", "gsdc.toolbox.app\gsdc.toolbox.app.csproj", "{4C1E0CAB-A184-4D68-ABB4-E55A1E794D8F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gsdc.toolbox.addons.module", "core-modules\gsdc.toolbox.addons.module\gsdc.toolbox.addons.module.csproj", "{419859F0-CAA8-4A03-A088-ACF4959F3523}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gsdc.toolbox.addons.module", "core-modules\add-ons\gsdc.toolbox.addons.module\gsdc.toolbox.addons.module.csproj", "{419859F0-CAA8-4A03-A088-ACF4959F3523}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gsdc.toolbox.menubar.module", "core-modules\gsdc.toolbox.menubar.module\gsdc.toolbox.menubar.module.csproj", "{CDB148FA-BBC0-4BA6-8187-2E5EB8CF24F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gsdc.toolbox.menubar.module", "core-modules\menu-bar\gsdc.toolbox.menubar.module\gsdc.toolbox.menubar.module.csproj", "{CDB148FA-BBC0-4BA6-8187-2E5EB8CF24F6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gsdc.toolbox.dialogs", "core-modules\gsdc.toolbox.dialogs\gsdc.toolbox.dialogs.csproj", "{70219C8A-F4DF-4A1A-B90C-D40E62789489}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gsdc.toolbox.dialogs", "core-modules\dialogs\gsdc.toolbox.dialogs\gsdc.toolbox.dialogs.csproj", "{70219C8A-F4DF-4A1A-B90C-D40E62789489}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gsdc.toolbox.dialogs.module", "core-modules\gsdc.toolbox.dialogs.module\gsdc.toolbox.dialogs.module.csproj", "{2799AFD6-517F-431B-80A5-3E962AF4D2F6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gsdc.toolbox.dialogs.module", "core-modules\dialogs\gsdc.toolbox.dialogs.module\gsdc.toolbox.dialogs.module.csproj", "{2799AFD6-517F-431B-80A5-3E962AF4D2F6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "add-ons", "add-ons", "{2CAD3992-456C-4F09-9129-29D17B0D0A45}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "menu-bar", "menu-bar", "{1C98C835-D3D2-49E4-8C7C-71CDEFDF4527}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dialogs", "dialogs", "{9D2D5506-7699-489F-BDF9-824C7E51995D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "background", "background", "{D7E337F8-92AD-4F67-931A-571675F2726C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -125,9 +133,9 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{E898C1DA-DC20-4CE7-8AE5-49A2787C59A4} = {D3BAD681-14D1-42E5-AE4E-34F3CAB4C7FC}
-		{41DE80B1-2016-4D18-BBFB-ED254B248816} = {D3BAD681-14D1-42E5-AE4E-34F3CAB4C7FC}
-		{7C9CA1BC-0106-4FFF-9B10-FC948A9A6330} = {D3BAD681-14D1-42E5-AE4E-34F3CAB4C7FC}
+		{E898C1DA-DC20-4CE7-8AE5-49A2787C59A4} = {D7E337F8-92AD-4F67-931A-571675F2726C}
+		{41DE80B1-2016-4D18-BBFB-ED254B248816} = {1C98C835-D3D2-49E4-8C7C-71CDEFDF4527}
+		{7C9CA1BC-0106-4FFF-9B10-FC948A9A6330} = {2CAD3992-456C-4F09-9129-29D17B0D0A45}
 		{C9A9EC39-B8EA-476C-87F2-3B1F152E85D2} = {41BF65A9-8529-4727-BEF4-D1A2C4167BB9}
 		{9851636F-A18A-4BD0-9B03-F29274CEF42C} = {C9A9EC39-B8EA-476C-87F2-3B1F152E85D2}
 		{61FE8D1D-8389-4696-AEE1-D8C37F655EC0} = {9851636F-A18A-4BD0-9B03-F29274CEF42C}
@@ -137,10 +145,14 @@ Global
 		{746CA9EF-0389-4642-A4E4-8CAD79EAA165} = {9851636F-A18A-4BD0-9B03-F29274CEF42C}
 		{C26623F6-B158-4E4A-856C-FF9BE985B391} = {C9A9EC39-B8EA-476C-87F2-3B1F152E85D2}
 		{8ACEBF23-880F-4428-BAC6-AB411AD76545} = {C9A9EC39-B8EA-476C-87F2-3B1F152E85D2}
-		{419859F0-CAA8-4A03-A088-ACF4959F3523} = {D3BAD681-14D1-42E5-AE4E-34F3CAB4C7FC}
-		{CDB148FA-BBC0-4BA6-8187-2E5EB8CF24F6} = {D3BAD681-14D1-42E5-AE4E-34F3CAB4C7FC}
-		{70219C8A-F4DF-4A1A-B90C-D40E62789489} = {D3BAD681-14D1-42E5-AE4E-34F3CAB4C7FC}
-		{2799AFD6-517F-431B-80A5-3E962AF4D2F6} = {D3BAD681-14D1-42E5-AE4E-34F3CAB4C7FC}
+		{419859F0-CAA8-4A03-A088-ACF4959F3523} = {2CAD3992-456C-4F09-9129-29D17B0D0A45}
+		{CDB148FA-BBC0-4BA6-8187-2E5EB8CF24F6} = {1C98C835-D3D2-49E4-8C7C-71CDEFDF4527}
+		{70219C8A-F4DF-4A1A-B90C-D40E62789489} = {9D2D5506-7699-489F-BDF9-824C7E51995D}
+		{2799AFD6-517F-431B-80A5-3E962AF4D2F6} = {9D2D5506-7699-489F-BDF9-824C7E51995D}
+		{2CAD3992-456C-4F09-9129-29D17B0D0A45} = {D3BAD681-14D1-42E5-AE4E-34F3CAB4C7FC}
+		{1C98C835-D3D2-49E4-8C7C-71CDEFDF4527} = {D3BAD681-14D1-42E5-AE4E-34F3CAB4C7FC}
+		{9D2D5506-7699-489F-BDF9-824C7E51995D} = {D3BAD681-14D1-42E5-AE4E-34F3CAB4C7FC}
+		{D7E337F8-92AD-4F67-931A-571675F2726C} = {D3BAD681-14D1-42E5-AE4E-34F3CAB4C7FC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {595C71B0-44A1-4FCF-8363-974DD8130B9C}

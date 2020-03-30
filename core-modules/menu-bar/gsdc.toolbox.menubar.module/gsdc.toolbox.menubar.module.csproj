@@ -9,7 +9,7 @@
     <PackageReference Include="Prism.Wpf" Version="7.2.0.1422" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\gsdc.toolbox\gsdc.toolbox.csproj" />
+    <ProjectReference Include="..\..\..\gsdc.toolbox\gsdc.toolbox.csproj" />
     <ProjectReference Include="..\gsdc.toolbox.menubar\gsdc.toolbox.menubar.csproj" />
   </ItemGroup>
   <ItemGroup>
@@ -23,6 +23,6 @@
     </Page>
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy /Y $(TargetPath) $(ProjectDir)..\..\Build\netcoreapp3.1\core-modules\menu-bar\" />
+    <Exec Command="xcopy /Y $(TargetPath) $(ProjectDir)..\..\..\Build\netcoreapp3.1\core-modules\menu-bar\" />
   </Target>
 </Project>
