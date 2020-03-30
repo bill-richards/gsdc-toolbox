@@ -1,6 +1,6 @@
 ﻿using Prism.Mvvm;
 
-namespace gsdc.toolbox.dialogs.Views
+namespace gsdc.toolbox.dialogs.Services
 {
     internal class FolderBrowserService : BindableBase, IFolderBrowserService
     {

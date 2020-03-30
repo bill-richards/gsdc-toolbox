@@ -1,6 +1,7 @@
 ﻿using System;
+using gsdc.toolbox.dialogs.Views;
 
-namespace gsdc.toolbox.dialogs.Views
+namespace gsdc.toolbox.dialogs.Factories
 {
     public class FolderBrowserFactory : IFolderBrowserFactory
     {

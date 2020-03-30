@@ -1,8 +1,7 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
-using gsdc.toolbox.dialogs.Views;
+using gsdc.toolbox.dialogs;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;
@@ -12,9 +11,8 @@ namespace gsdc.toolbox.addons.ViewModels
     public class AddOnModuleLoaderViewModel : BindableBase
     {
         private readonly IFolderBrowserService _folderBrowserService;
-        private string _path;
 
-        public AddOnModuleLoaderViewModel(IRegionManager regionManager, IApplicationService applicationService, IFolderBrowserFactory folderBrowserFactory, IFolderBrowserService folderBrowserService)
+        public AddOnModuleLoaderViewModel(IRegionManager regionManager, IFolderBrowserFactory folderBrowserFactory, IFolderBrowserService folderBrowserService)
         {
             _folderBrowserService = folderBrowserService;
             AllDoneHereCommand = new DelegateCommand(() =>

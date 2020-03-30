@@ -1,5 +1,4 @@
 ﻿using System.Windows.Input;
-using gsdc.toolbox.dialogs.Views;
 using Prism.Commands;
 using Prism.Mvvm;
 

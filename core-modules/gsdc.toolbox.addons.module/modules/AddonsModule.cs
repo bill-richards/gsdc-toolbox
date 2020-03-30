@@ -4,6 +4,7 @@ using Prism.Modularity;
 
 namespace gsdc.toolbox.addons.modules
 {
+    [ModuleDependency("DialogsModule")]
     [ModuleDependency("MenubarModule")]
     [ModuleDependency("CoreModuleLoadingModule")]
     public class AddonsModule : IModule

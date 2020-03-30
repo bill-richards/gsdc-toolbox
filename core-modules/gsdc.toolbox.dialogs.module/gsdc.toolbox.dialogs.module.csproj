@@ -2,27 +2,30 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
-    <AssemblyName>gsdc.toolbox.menubar.module</AssemblyName>
-    <RootNamespace>gsdc.toolbox.menubar</RootNamespace>
+    <AssemblyName>gsdc.toolbox.dialogs.module</AssemblyName>
+    <RootNamespace>gsdc.toolbox.dialogs</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Prism.Wpf" Version="7.2.0.1422" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\gsdc.toolbox\gsdc.toolbox.csproj" />
-    <ProjectReference Include="..\gsdc.toolbox.menubar\gsdc.toolbox.menubar.csproj" />
+    <ProjectReference Include="..\gsdc.toolbox.dialogs\gsdc.toolbox.dialogs.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Views\MenuBar.xaml.cs">
+    <Compile Update="Views\FolderBrowserTree.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Views\MenuBar.xaml">
+    <Page Update="Views\FolderBrowser.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\FolderBrowserTree.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy /Y $(TargetPath) $(ProjectDir)..\..\Build\netcoreapp3.1\core-modules\menu-bar\" />
+    <Exec Command="xcopy /Y $(TargetPath) $(ProjectDir)..\..\Build\netcoreapp3.1\core-modules\dialogs\" />
   </Target>
 </Project>
