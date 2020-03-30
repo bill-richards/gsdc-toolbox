@@ -2,7 +2,6 @@
 using System.Runtime.InteropServices;
 using System.Windows.Input;
 using System.Windows.Interop;
-using gsdc.toolbox.dialogs.ViewModels;
 
 namespace gsdc.toolbox.dialogs.Views
 {

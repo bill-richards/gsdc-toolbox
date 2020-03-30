@@ -1,4 +1,5 @@
-﻿using gsdc.toolbox.dialogs.Views;
+﻿using gsdc.toolbox.dialogs.Factories;
+using gsdc.toolbox.dialogs.Services;
 using Prism.Ioc;
 using Prism.Modularity;
 

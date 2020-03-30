@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
-    <AssemblyName>gsdc.toolbox.addons.impl</AssemblyName>
+    <AssemblyName>gsdc.toolbox.addons.module</AssemblyName>
     <RootNamespace>gsdc.toolbox.addons</RootNamespace>
   </PropertyGroup>
   <ItemGroup>

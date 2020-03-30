@@ -1,4 +1,4 @@
-﻿namespace gsdc.toolbox.dialogs.Views
+﻿namespace gsdc.toolbox.dialogs
 {
     public interface IFolderBrowserFactory
     {

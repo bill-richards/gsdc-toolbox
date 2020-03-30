@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace gsdc.toolbox.dialogs.Views
+namespace gsdc.toolbox.dialogs
 {
     public interface IFolderBrowserService : INotifyPropertyChanged
     {
