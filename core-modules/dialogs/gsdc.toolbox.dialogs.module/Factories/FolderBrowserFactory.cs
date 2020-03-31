@@ -1,14 +1,15 @@
 ﻿using System;
+using gsdc.toolbox.dialogs.Services;
 using gsdc.toolbox.dialogs.Views;
 
 namespace gsdc.toolbox.dialogs.Factories
 {
-    public class FolderBrowserFactory : IFolderBrowserFactory
+    internal class FolderBrowserFactory : IFolderBrowserFactory
     {
         private readonly Func<FolderBrowser> _folderBrowserFactoryMethod;
-        private readonly IFolderBrowserService _folderBrowserService;
+        private readonly IDialogViewState _folderBrowserService;
 
-        public  FolderBrowserFactory(Func<FolderBrowser> folderBrowserFactoryMethod, IFolderBrowserService folderBrowserService)
+        public  FolderBrowserFactory(Func<FolderBrowser> folderBrowserFactoryMethod, IDialogViewState folderBrowserService)
         {
             _folderBrowserFactoryMethod = folderBrowserFactoryMethod;
             _folderBrowserService = folderBrowserService;
@@ -17,9 +18,7 @@ namespace gsdc.toolbox.dialogs.Factories
         public void ShowFolderBrowser()
         {
             if (!_folderBrowserService.IsDialogClosed) return;
-
             _folderBrowserFactoryMethod().Show();
-            _folderBrowserService.IsDialogClosed = false;
         }
     }
 }

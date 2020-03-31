@@ -2,10 +2,13 @@
 
 namespace gsdc.toolbox.dialogs.Services
 {
-    internal class FolderBrowserService : BindableBase, IFolderBrowserService
+    internal class FolderBrowserService : BindableBase, IFolderBrowserService, IDialogViewState
     {
         private bool _isDialogClosed;
         private string _selectedPath;
+
+        public FolderBrowserService() 
+            => IsDialogClosed = true;
 
         public bool IsDialogClosed
         {
