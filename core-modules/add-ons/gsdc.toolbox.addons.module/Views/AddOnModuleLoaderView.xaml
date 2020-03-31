@@ -23,8 +23,8 @@
                      <RowDefinition />
                      <RowDefinition />
                   </Grid.RowDefinitions>
-                  <Button Margin="0, 5, 0, 0" Padding="2" HorizontalAlignment="Right" Width="100" Command="{Binding LoadCommand}" Content="{Binding LoadLabel}" />
-                  <Button Margin="0, 5, 0, 0" Padding="2" HorizontalAlignment="Right" Grid.Row="1" Width="100" Command="{Binding AllDoneHereCommand}" Content="{Binding AllDoneLabel}" />
+                  <Button Margin="0, 5, 0, 0" Padding="2" HorizontalAlignment="Right" Width="100" Command="{Binding LoadCommand}" CommandParameter="{Binding Path}" Content="{Binding LoadLabel}" />
+                  <Button Margin="0, 5, 0, 0" Padding="2" HorizontalAlignment="Right" Grid.Row="1" Width="100" Command="{Binding CloseViewCommand}" Content="{Binding AllDoneLabel}" />
                </Grid>
             </DockPanel>
          </Border>

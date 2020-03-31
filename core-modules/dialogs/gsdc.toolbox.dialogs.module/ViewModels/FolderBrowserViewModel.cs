@@ -1,29 +1,31 @@
 ﻿using System.Windows.Input;
+using gsdc.toolbox.dialogs.Services;
 using Prism.Commands;
 using Prism.Mvvm;
 
 namespace gsdc.toolbox.dialogs.ViewModels
 {
-    public class FolderBrowserViewModel : BindableBase
+    internal class FolderBrowserViewModel : BindableBase
     {
         private string _selectedFolderPath;
 
-        public FolderBrowserViewModel(IFolderBrowserService folderBrowserService)
+        public FolderBrowserViewModel(IFolderBrowserService folderBrowserService, IDialogViewState viewState)
         {
             CancelCommand = new DelegateCommand<IClosable>(window =>
             {
                 window?.Close();
-                folderBrowserService.IsDialogClosed = true;
+                viewState.IsDialogClosed = true;
             });
 
             FolderSelectedCommand = new DelegateCommand<IClosable>(window =>
                 {
                     window?.Close();
                     folderBrowserService.SelectedPath = _selectedFolderPath;
-                    folderBrowserService.IsDialogClosed = true;
+                    viewState.IsDialogClosed = true;
                 });
 
             SelectedFolderPath = folderBrowserService.SelectedPath;
+            viewState.IsDialogClosed = false;
         }
 
         public string SelectedFolderPath

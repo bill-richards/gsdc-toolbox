@@ -12,10 +12,12 @@ namespace gsdc.toolbox.addons.ViewModels
     {
         private readonly IFolderBrowserService _folderBrowserService;
 
-        public AddOnModuleLoaderViewModel(IRegionManager regionManager, IFolderBrowserFactory folderBrowserFactory, IFolderBrowserService folderBrowserService)
+        public AddOnModuleLoaderViewModel(IRegionManager regionManager, IFolderBrowserFactory folderBrowserFactory, IFolderBrowserService folderBrowserService, IAddOnService addOnService)
         {
             _folderBrowserService = folderBrowserService;
-            AllDoneHereCommand = new DelegateCommand(() =>
+            _folderBrowserService.PropertyChanged += BrowserServicePropertyChanged;
+
+            CloseViewCommand = new DelegateCommand(() =>
             {
                 var region = regionManager.Regions[RegionNames.ShellTopRegion];
                 var view = region.Views.First();
@@ -23,8 +25,7 @@ namespace gsdc.toolbox.addons.ViewModels
                 region.Remove(view);
             });
 
-            _folderBrowserService.PropertyChanged += BrowserServicePropertyChanged;
-
+            LoadCommand = new DelegateCommand<string>(addOnService.LoadAddOns);
             PathFinderCommand = new DelegateCommand(folderBrowserFactory.ShowFolderBrowser);
         }
 
@@ -34,7 +35,9 @@ namespace gsdc.toolbox.addons.ViewModels
             RaisePropertyChanged(nameof(Path));
         }
 
-        public ICommand AllDoneHereCommand { get; }
+        public ICommand CloseViewCommand { get; }
+
+        public ICommand LoadCommand { get; }
 
         public ICommand PathFinderCommand { get; }
 

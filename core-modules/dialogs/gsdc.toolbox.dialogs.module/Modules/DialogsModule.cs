@@ -9,13 +9,12 @@ namespace gsdc.toolbox.dialogs.Modules
     {
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            var browserService = containerProvider.Resolve<IFolderBrowserService>();
-            browserService.IsDialogClosed = true;
-            browserService.SelectedPath = containerProvider.Resolve<IApplicationService>().AddOnsDirectory;
+            containerProvider.Resolve<IFolderBrowserService>().SelectedPath = containerProvider.Resolve<IApplicationService>().AddOnsDirectory;
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterSingleton<IDialogViewState, FolderBrowserService>();
             containerRegistry.RegisterSingleton<IFolderBrowserService, FolderBrowserService>();
             containerRegistry.RegisterSingleton<IFolderBrowserFactory, FolderBrowserFactory>();
         }
