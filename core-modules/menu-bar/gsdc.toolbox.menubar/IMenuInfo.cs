@@ -1,9 +1,23 @@
-﻿using System.Windows.Data;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 
 namespace gsdc.toolbox.menubar
 {
-    public interface IMenuInfo
+    public static class MenuInfoExtensions
+    {
+        public static IMenuInfo And(this IMenuInfo menuInfo) => menuInfo;
+        public static IMenuInfo SetOwningModuleName(this IMenuInfo menuInfo, string owningModuleName)
+        {
+            if (menuInfo is IOwnerSetter info)
+            {
+                info.SetModuleName(owningModuleName);
+            }
+
+            return menuInfo;
+        }
+    }
+
+
+    public interface IMenuInfo 
     {
         ICommand Command { get; }
         object CommandParameter { get; }
@@ -13,9 +27,10 @@ namespace gsdc.toolbox.menubar
         string OwningModuleName { get; }
         string ParentName { get; }
         string ToolTip { get; }
+    }
 
-        IMenuInfo And { get; }
-
-        IMenuInfo SetOwningModuleName(string owningModuleName);
+    internal interface IOwnerSetter
+    {
+        void SetModuleName(string moduleName);
     }
 }

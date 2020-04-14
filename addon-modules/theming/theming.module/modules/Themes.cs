@@ -8,11 +8,11 @@ namespace toolbox.themes.modules
     public class Themes : IModule
     {
         public void OnInitialized(IContainerProvider containerProvider) 
-            => containerProvider.Resolve<MenuBuilderService>();
+            => containerProvider.Resolve<MenubarConstructionService>();
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterSingleton<MenuBuilderService>();
+            containerRegistry.RegisterSingleton<MenubarConstructionService>();
             containerRegistry.RegisterSingleton<IThemeFinderService, ThemeFinderService>();
             containerRegistry.RegisterSingleton<IThemeFactory, Theme>();
 
