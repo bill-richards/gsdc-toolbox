@@ -1,8 +1,8 @@
 ﻿using System.Windows.Input;
 
-namespace gsdc.toolbox.menubar.Factories
+namespace gsdc.toolbox.menubar
 {
-    internal class MenuInfo : IMenuInfo, IMenuInfoFactory
+    public class MenuInfo : IMenuInfo, IOwnerSetter, IMenuInfoFactory
     {
         public MenuInfo() { }
 
@@ -31,7 +31,12 @@ namespace gsdc.toolbox.menubar.Factories
         public dynamic Icon { get; }
         public string DisplayText { get; }
         public string Name { get; }
+
         public string OwningModuleName { get; private set; }
+
+        public void SetModuleName(string moduleName) 
+            => OwningModuleName = moduleName;
+
         public string ParentName { get; }
         public string ToolTip { get; }
         public ICommand Command { get; }
@@ -51,13 +56,5 @@ namespace gsdc.toolbox.menubar.Factories
 
         public IMenuInfo CreateMenuSeparatorInfo(string parentMenuName)
             => new MenuInfo(string.Empty, ToolboxMenuNames.ToolboxMenuSeparator, parentMenuName);
-
-        public IMenuInfo And => this;
-
-        public IMenuInfo SetOwningModuleName(string owningModuleName)
-        {
-            OwningModuleName = owningModuleName;
-            return this;
-        }
     }
 }

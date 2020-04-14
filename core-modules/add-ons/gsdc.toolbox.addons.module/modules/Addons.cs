@@ -11,12 +11,12 @@ namespace gsdc.toolbox.addons.modules
     public class Addons : IModule
     {
         public void OnInitialized(IContainerProvider containerProvider) 
-            => containerProvider.Resolve<AddOnsMenuBuilderService>();
+            => containerProvider.Resolve<MenubarConstructionService>();
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<IAddOnService, AddOnService>();
-            containerRegistry.RegisterSingleton<AddOnsMenuBuilderService>();
+            containerRegistry.RegisterSingleton<MenubarConstructionService>();
             containerRegistry.Register<IAddOnsMenuCommands, AddOnsMenuCommands>();
         }
     }
