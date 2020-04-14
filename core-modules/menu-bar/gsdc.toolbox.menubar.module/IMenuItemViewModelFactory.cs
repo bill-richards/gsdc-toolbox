@@ -1,8 +1,10 @@
 ﻿
+using System;
+
 namespace gsdc.toolbox.menubar
 {
     internal interface IMenuItemViewModelFactory
     {
-        IMenuItemViewModel CreateMenuViewModel(IMenuInfo menuInfo);
+        Func<IMenuInfo,IMenuItemViewModel> CreateMenuViewModel { get; } 
     }
 }

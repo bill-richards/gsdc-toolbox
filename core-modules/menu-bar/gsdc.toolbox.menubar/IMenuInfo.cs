@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System.Windows.Data;
+using System.Windows.Input;
 
 namespace gsdc.toolbox.menubar
 {

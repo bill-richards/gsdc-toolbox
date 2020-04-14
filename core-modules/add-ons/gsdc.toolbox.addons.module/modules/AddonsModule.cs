@@ -16,6 +16,7 @@ namespace gsdc.toolbox.addons.modules
         {
             containerRegistry.RegisterSingleton<IAddOnService, AddOnService>();
             containerRegistry.RegisterSingleton<AddOnsMenuBuilderService>();
+            containerRegistry.Register<IAddOnsMenuCommands, AddOnsMenuCommands>();
         }
     }
 }

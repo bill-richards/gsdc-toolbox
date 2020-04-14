@@ -1,11 +1,9 @@
-﻿using gsdc.toolbox.user.Views;
-using Prism.Ioc;
+﻿using Prism.Ioc;
 using Prism.Modularity;
-using Prism.Regions;
 
-namespace gsdc.toolbox.user
+namespace gsdc.toolbox.security.users.modules
 {
-    public class userModule : IModule
+    public class UsersModule : IModule
     {
         public void OnInitialized(IContainerProvider containerProvider)
         {

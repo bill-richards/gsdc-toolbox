@@ -1,0 +1,36 @@
+﻿using System;
+using Prism.Events;
+
+namespace gsdc.toolbox.menubar.Events
+{
+    internal class MenuVisibilityEventArgs : IMenuVisibilityEventArgs, IMenuVisibilityEventPublisher, IMenuVisibilityEventSubscriber
+
+    {
+        public string AllMenuItems => "_1ED3C8AB-18ED-47BB-B3C7-5D208F78FA89";
+
+        public MenuVisibilityEventArgs(IEventAggregator eventAggregator)
+            => SetMenuVisibilityEvent = eventAggregator.GetEvent<SetMenuItemVisibilityEvent>();
+
+        private MenuVisibilityEventArgs(string menuName, bool isVisible)
+        {
+            MenuName = menuName;
+            IsMenuVisible = isVisible;
+        }
+
+        public SetMenuItemVisibilityEvent SetMenuVisibilityEvent { get; }
+
+        public void SetVisibilityForSpecificMenuItem(string menuItemName, bool isVisible)
+        {
+            if (string.IsNullOrWhiteSpace(menuItemName)) return;
+            SetMenuVisibilityEvent?.Publish(new MenuVisibilityEventArgs(menuItemName, isVisible));
+        }
+
+        public void SetVisibilityForAllMenuItems(bool isVisible)
+            => SetMenuVisibilityEvent?.Publish(new MenuVisibilityEventArgs(AllMenuItems, isVisible));
+
+        public bool IsMenuVisible { get; }
+        public string MenuName { get; }
+        public void SetEventSubscription(Action<IMenuVisibilityEventArgs> eventArgs, Func<IMenuVisibilityEventArgs, bool> subscriptionFilter) 
+            => SetMenuVisibilityEvent?.Subscribe(eventArgs, ThreadOption.UIThread, true, subscriptionFilter.Invoke);
+    }
+}

@@ -2,7 +2,7 @@
 
 namespace gsdc.toolbox.menubar.Services
 {
-    internal class MenuService : IMenuService
+    internal class MenuRegistrar : IMenuRegistrar
     {
         public event Action<IMenuInfo> MenuItemAdded;
 

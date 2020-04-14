@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Input;
 
 namespace gsdc.toolbox.menubar
@@ -8,10 +9,14 @@ namespace gsdc.toolbox.menubar
         string Header { get; }
         string Name { get; }
 
+        string ParentName { get; }
+
         dynamic Icon { get; }
 
         string ToolTip { get; }
 
+        Visibility Visibility { get; }
+        
         ObservableCollection<object> MenuItems { get; }
 
         ICommand Command { get; }
