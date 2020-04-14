@@ -43,7 +43,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gsdc.toolbox.menubar.module
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gsdc.toolbox.dialogs", "core-modules\dialogs\gsdc.toolbox.dialogs\gsdc.toolbox.dialogs.csproj", "{70219C8A-F4DF-4A1A-B90C-D40E62789489}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gsdc.toolbox.dialogs.module", "core-modules\dialogs\gsdc.toolbox.dialogs.module\gsdc.toolbox.dialogs.module.csproj", "{2799AFD6-517F-431B-80A5-3E962AF4D2F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gsdc.toolbox.dialogs.module", "core-modules\dialogs\gsdc.toolbox.dialogs.module\gsdc.toolbox.dialogs.module.csproj", "{2799AFD6-517F-431B-80A5-3E962AF4D2F6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "add-ons", "add-ons", "{2CAD3992-456C-4F09-9129-29D17B0D0A45}"
 EndProject
@@ -52,6 +52,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dialogs", "dialogs", "{9D2D5506-7699-489F-BDF9-824C7E51995D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "background", "background", "{D7E337F8-92AD-4F67-931A-571675F2726C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "security", "security", "{575FD673-A36E-4C43-9898-A9879389EE12}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gsdc.toolbox.security", "core-modules\security\gsdc.toolbox.security\gsdc.toolbox.security.csproj", "{C5C2255A-A0AA-49B3-8DE3-66B7AC34F3CC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gsdc.toolbox.security.users", "core-modules\security\gsdc.toolbox.security.users\gsdc.toolbox.security.users.csproj", "{8FAF18B0-BFFB-410B-9FF9-6F9707BE7DFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -128,6 +134,14 @@ Global
 		{2799AFD6-517F-431B-80A5-3E962AF4D2F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2799AFD6-517F-431B-80A5-3E962AF4D2F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2799AFD6-517F-431B-80A5-3E962AF4D2F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5C2255A-A0AA-49B3-8DE3-66B7AC34F3CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5C2255A-A0AA-49B3-8DE3-66B7AC34F3CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5C2255A-A0AA-49B3-8DE3-66B7AC34F3CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5C2255A-A0AA-49B3-8DE3-66B7AC34F3CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FAF18B0-BFFB-410B-9FF9-6F9707BE7DFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FAF18B0-BFFB-410B-9FF9-6F9707BE7DFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FAF18B0-BFFB-410B-9FF9-6F9707BE7DFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FAF18B0-BFFB-410B-9FF9-6F9707BE7DFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -153,6 +167,9 @@ Global
 		{1C98C835-D3D2-49E4-8C7C-71CDEFDF4527} = {D3BAD681-14D1-42E5-AE4E-34F3CAB4C7FC}
 		{9D2D5506-7699-489F-BDF9-824C7E51995D} = {D3BAD681-14D1-42E5-AE4E-34F3CAB4C7FC}
 		{D7E337F8-92AD-4F67-931A-571675F2726C} = {D3BAD681-14D1-42E5-AE4E-34F3CAB4C7FC}
+		{575FD673-A36E-4C43-9898-A9879389EE12} = {D3BAD681-14D1-42E5-AE4E-34F3CAB4C7FC}
+		{C5C2255A-A0AA-49B3-8DE3-66B7AC34F3CC} = {575FD673-A36E-4C43-9898-A9879389EE12}
+		{8FAF18B0-BFFB-410B-9FF9-6F9707BE7DFF} = {575FD673-A36E-4C43-9898-A9879389EE12}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {595C71B0-44A1-4FCF-8363-974DD8130B9C}
