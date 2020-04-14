@@ -16,13 +16,13 @@ namespace gsdc.toolbox.menubar.modules
         {
             var regionManager = containerProvider.Resolve<IRegionManager>();
             regionManager.RegisterViewWithRegion(RegionNames.ShellToolboxMenuHolder, typeof(MenuBar));
-            containerProvider.Resolve<MenuBarMenuBuilderService>();
+            containerProvider.Resolve<MenubarConstructionService>();
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<IMenuRegistrar, MenuRegistrar>();
-            containerRegistry.RegisterSingleton<MenuBarMenuBuilderService>();
+            containerRegistry.RegisterSingleton<MenubarConstructionService>();
             containerRegistry.RegisterSingleton<IMenuInfoFactory, MenuInfo>();
             containerRegistry.RegisterSingleton<IMenuItemFactory, MenuItemFactory>();
             containerRegistry.RegisterSingleton<IMenuFacade, MenuFacade>();

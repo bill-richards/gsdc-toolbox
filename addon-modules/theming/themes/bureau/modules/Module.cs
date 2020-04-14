@@ -9,9 +9,9 @@ namespace themes.bureau.modules
     public class Module : IModule
     {
         public void OnInitialized(IContainerProvider containerProvider) 
-            => containerProvider.Resolve<MenuBuilderService>();
+            => containerProvider.Resolve<MenubarConstructionService>();
 
         public void RegisterTypes(IContainerRegistry containerRegistry) 
-            => containerRegistry.RegisterSingleton<MenuBuilderService>();
+            => containerRegistry.RegisterSingleton<MenubarConstructionService>();
     }
 }
