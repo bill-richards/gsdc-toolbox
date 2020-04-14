@@ -7,9 +7,10 @@ using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
 
-namespace gsdc.toolbox.menubar.Modules
+namespace gsdc.toolbox.menubar.modules
 {
-    public class MenubarModule : IModule
+    [Module(ModuleName = ModuleDescription.ModuleName)]
+    public class Menubar : IModule
     {
         public void OnInitialized(IContainerProvider containerProvider)
         {

@@ -1,7 +1,7 @@
 ﻿using gsdc.toolbox.menubar;
 using Prism.Commands;
 
-namespace themes.services
+namespace toolbox.themes.services
 {
     internal class MenuBuilderService
     {

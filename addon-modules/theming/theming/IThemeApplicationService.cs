@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace themes
+namespace toolbox.themes
 {
     public interface IThemeApplicationService
     {

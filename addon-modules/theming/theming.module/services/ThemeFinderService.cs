@@ -1,7 +1,7 @@
 ﻿using gsdc.toolbox;
 using gsdc.toolbox.addons;
 
-namespace themes.services
+namespace toolbox.themes.services
 {
     internal class ThemeFinderService : IThemeFinderService
     {

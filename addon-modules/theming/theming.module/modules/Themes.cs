@@ -1,10 +1,11 @@
 ﻿using Prism.Ioc;
 using Prism.Modularity;
-using themes.services;
+using toolbox.themes.services;
 
-namespace themes.modules
+namespace toolbox.themes.modules
 {
-    public class ThemesModule : IModule
+    [Module(ModuleName = ModuleDescription.ModuleName)]
+    public class Themes : IModule
     {
         public void OnInitialized(IContainerProvider containerProvider) 
             => containerProvider.Resolve<MenuBuilderService>();

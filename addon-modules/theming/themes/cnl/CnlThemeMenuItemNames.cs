@@ -1,4 +1,4 @@
-﻿namespace cnl.themes
+﻿namespace themes.cnl
 {
     internal static class CnlThemeMenuItemNames
     {

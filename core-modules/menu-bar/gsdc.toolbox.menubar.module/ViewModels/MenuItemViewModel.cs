@@ -17,9 +17,9 @@ namespace gsdc.toolbox.menubar.ViewModels
         public MenuItemViewModel(IMenuItemFactory menuItemFactory, IMenuRegistrar menuRegistrar, IMenuVisibilityEventFacade menuVisibilityEventFacade) 
             => CreateMenuViewModel = menuInfo => new MenuItemViewModel(menuInfo, menuRegistrar, menuItemFactory, menuVisibilityEventFacade, CreateMenuViewModel);
 
-        public Func<IMenuInfo,IMenuItemViewModel> CreateMenuViewModel { get; } 
+        public Func<IMenuInfo, IMenuItemViewModel> CreateMenuViewModel { get; } 
 
-        private MenuItemViewModel(IMenuInfo info, IMenuRegistrar menuRegistrar, IMenuItemFactory menuItemFactory, IMenuVisibilityEventFacade menuVisibilityEventFacade, Func<IMenuInfo,IMenuItemViewModel> factoryFunc)
+        private MenuItemViewModel(IMenuInfo info, IMenuRegistrar menuRegistrar, IMenuItemFactory menuItemFactory, IMenuVisibilityEventFacade menuVisibilityEventFacade, Func<IMenuInfo, IMenuItemViewModel> factoryFunc)
         {
             _menuItemFactory = menuItemFactory;
             _menuVisibilityEventFacade = menuVisibilityEventFacade;
