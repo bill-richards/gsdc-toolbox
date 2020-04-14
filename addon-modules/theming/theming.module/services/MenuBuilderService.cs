@@ -5,20 +5,23 @@ namespace themes.services
 {
     internal class MenuBuilderService
     {
-        public MenuBuilderService(IMenuInfoFactory infoFactory, IMenuService menuService, IThemeFinderService themeFinder)
+        public MenuBuilderService(IMenuInfoFactory infoFactory, IMenuRegistrar menuRegistrar, IThemeFinderService themeFinder, IMenuService menuService)
         {
-            menuService.AddMenuItem(infoFactory.CreateMenuInfo("T_heming",
+            menuRegistrar.AddMenuItem(infoFactory.CreateMenuInfo("T_heming",
                                                             ThemingMenuNames.MainMenu,
                                                                 ToolboxMenuNames.ToolboxMenuBar));
 
-            menuService.AddMenuItem(infoFactory.CreateMenuInfo("Fin_d Themes",
+            menuRegistrar.AddMenuItem(infoFactory.CreateMenuInfo("Fin_d Themes",
                                                             ThemingMenuNames.FindThemesMenuItem,
                                                                 ThemingMenuNames.MainMenu,
                                                             new DelegateCommand(themeFinder.FindThemes)));
 
-            menuService.AddMenuItem(infoFactory.CreateMenuInfo("A_vailable Themes",
+            menuRegistrar.AddMenuItem(infoFactory.CreateMenuInfo("A_vailable Themes",
                                                             ThemingMenuNames.ThemeListMenuItem,
                                                                 ThemingMenuNames.MainMenu));
+
+            menuService.DisplayThisMenuItem(ThemingMenuNames.FindThemesMenuItem);
+            menuService.DisplayThisMenuItem(ThemingMenuNames.ThemeListMenuItem);
         }
     }
 }

@@ -4,8 +4,8 @@ namespace gsdc.toolbox.menubar
 {
     internal interface IMenuItemFactory
     {
-        Separator CreateSeparator();
-        MenuItem Create(IMenuItemViewModel vm);
+        MenuItem CreateMenuItemFromViewModel(IMenuItemViewModel vm);
+        Separator CreateMenuSeparator();
         string GetValidMenuNameFromGuid(string guid);
     }
 }

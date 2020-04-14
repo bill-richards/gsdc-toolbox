@@ -7,23 +7,26 @@ namespace bureau.themes.services
 {
     internal class MenuBuilderService
     {
-        public MenuBuilderService(IMenuInfoFactory infoFactory, IMenuService menuService, IThemeApplicationService themeApplicationService)
+        public MenuBuilderService(IMenuInfoFactory infoFactory, IMenuRegistrar menuRegistrar, IThemeApplicationService themeApplicationService, IMenuService menuService)
         {
             themeApplicationService.CreateThemeList(Assembly.GetAssembly(typeof(MenuBuilderService)));
             
-            menuService.AddMenuItem(infoFactory.CreateMenuInfo("_Bureau Themes",
+            menuRegistrar.AddMenuItem(infoFactory.CreateMenuInfo("_Bureau Themes",
                 BureauThemeMenuItemNames.BureauThemes,
                 ThemingMenuNames.ThemeListMenuItem));
 
-            menuService.AddMenuItem(infoFactory.CreateMenuInfo("Bureau Bla_ck",
+            menuRegistrar.AddMenuItem(infoFactory.CreateMenuInfo("Bureau B_lue",
+                BureauThemeMenuItemNames.BureauBlue,
+                BureauThemeMenuItemNames.BureauThemes,
+                new DelegateCommand(()=> themeApplicationService.ApplyTheme("Bureaublue"))));
+
+            menuRegistrar.AddMenuItem(infoFactory.CreateMenuInfo("Bureau Bla_ck",
                 BureauThemeMenuItemNames.BureauBlack,
                 BureauThemeMenuItemNames.BureauThemes,
                 new DelegateCommand(()=> themeApplicationService.ApplyTheme("Bureaublack"))));
 
-            menuService.AddMenuItem(infoFactory.CreateMenuInfo("Bureau B_lue",
-                BureauThemeMenuItemNames.BureauBlue,
-                BureauThemeMenuItemNames.BureauThemes,
-                new DelegateCommand(()=> themeApplicationService.ApplyTheme("Bureaublue"))));
+            menuService.DisplayThisMenuItem(BureauThemeMenuItemNames.BureauBlue);
+            menuService.DisplayThisMenuItem(BureauThemeMenuItemNames.BureauBlack);
         }
     }
 }

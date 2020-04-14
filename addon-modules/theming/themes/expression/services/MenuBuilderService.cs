@@ -7,23 +7,26 @@ namespace expression.themes.services
 {
     internal class MenuBuilderService
     {
-        public MenuBuilderService(IMenuInfoFactory infoFactory, IMenuService menuService, IThemeApplicationService themeApplicationService)
+        public MenuBuilderService(IMenuInfoFactory infoFactory, IMenuRegistrar menuRegistrar, IThemeApplicationService themeApplicationService, IMenuService menuService)
         {
             themeApplicationService.CreateThemeList(Assembly.GetAssembly(typeof(MenuBuilderService)));
 
-            menuService.AddMenuItem(infoFactory.CreateMenuInfo("_Expression Themes",
+            menuRegistrar.AddMenuItem(infoFactory.CreateMenuInfo("_Expression Themes",
                 ExpressionThemeMenuItemNames.ExpressionThemes,
                 ThemingMenuNames.ThemeListMenuItem));
+
+            menuRegistrar.AddMenuItem(infoFactory.CreateMenuInfo("_Light",
+                ExpressionThemeMenuItemNames.ExpressionLight,
+                ExpressionThemeMenuItemNames.ExpressionThemes,
+                new DelegateCommand(()=> themeApplicationService.ApplyTheme("Expressionlight"))));
             
-            menuService.AddMenuItem(infoFactory.CreateMenuInfo("_Dark",
+            menuRegistrar.AddMenuItem(infoFactory.CreateMenuInfo("_Dark",
                 ExpressionThemeMenuItemNames.ExpressionDark,
                 ExpressionThemeMenuItemNames.ExpressionThemes,
                 new DelegateCommand(()=> themeApplicationService.ApplyTheme("Expressiondark"))));
 
-            menuService.AddMenuItem(infoFactory.CreateMenuInfo("_Light",
-                ExpressionThemeMenuItemNames.ExpressionLight,
-                ExpressionThemeMenuItemNames.ExpressionThemes,
-                new DelegateCommand(()=> themeApplicationService.ApplyTheme("Expressionlight"))));
+            menuService.DisplayThisMenuItem(ExpressionThemeMenuItemNames.ExpressionLight);
+            menuService.DisplayThisMenuItem(ExpressionThemeMenuItemNames.ExpressionDark);
         }
     }
 }

@@ -4,7 +4,9 @@ namespace gsdc.toolbox.menubar
 {
     public interface IMenuService
     {
-        event Action<IMenuInfo> MenuItemAdded;
-        void AddMenuItem(IMenuInfo newMenu);
+        void DisplayAllMenuItems();
+        void HideAllMenuItems();
+        void DisplayThisMenuItem(string menuName);
+        void HideThisMenuItem(string menuName);
     }
 }
