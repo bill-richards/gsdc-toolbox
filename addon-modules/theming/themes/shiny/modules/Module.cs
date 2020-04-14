@@ -1,11 +1,12 @@
 ﻿using Prism.Ioc;
 using Prism.Modularity;
-using shiny.themes.services;
+using themes.shiny.services;
 
-namespace shiny.themes.modules
+namespace themes.shiny.modules
 {
-    [ModuleDependency("ThemesModule")]
-    public class ShinyThemesModule : IModule
+    [Module(ModuleName = ModuleDescription.ModuleName)]
+    [ModuleDependency(ModuleDescription.ThemesModuleName)]
+    public class Module : IModule
     {
         public void OnInitialized(IContainerProvider containerProvider) 
             => containerProvider.Resolve<MenuBuilderService>();

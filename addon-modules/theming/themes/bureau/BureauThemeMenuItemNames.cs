@@ -1,4 +1,4 @@
-﻿namespace bureau.themes
+﻿namespace themes.bureau
 {
     internal static class BureauThemeMenuItemNames
     {

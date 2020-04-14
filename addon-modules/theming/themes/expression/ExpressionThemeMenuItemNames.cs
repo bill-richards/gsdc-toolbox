@@ -1,4 +1,4 @@
-﻿namespace expression.themes
+﻿namespace themes.expression
 {
     internal static class ExpressionThemeMenuItemNames
     {

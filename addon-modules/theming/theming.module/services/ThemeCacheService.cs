@@ -10,7 +10,7 @@ using System.Windows.Baml2006;
 using System.Windows.Markup;
 using gsdc.toolbox;
 
-namespace themes.services
+namespace toolbox.themes.services
 {
     internal class ThemeCacheService : IThemeCacheService
    {

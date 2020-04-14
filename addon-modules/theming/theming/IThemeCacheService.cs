@@ -2,7 +2,7 @@
 using System.Reflection;
 using System.Windows;
 
-namespace themes
+namespace toolbox.themes
 {
     public interface IThemeCacheService
     {

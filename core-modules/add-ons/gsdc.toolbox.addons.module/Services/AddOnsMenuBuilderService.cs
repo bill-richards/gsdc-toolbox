@@ -1,4 +1,5 @@
-﻿using gsdc.toolbox.menubar;
+﻿using gsdc.toolbox.addons.modules;
+using gsdc.toolbox.menubar;
 
 namespace gsdc.toolbox.addons.services
 {
@@ -10,7 +11,7 @@ namespace gsdc.toolbox.addons.services
 
             menuRegistrar.AddMenuItem(infoFactory.CreateMenuInfo("_Add Ons",
                 AddOnsMenuNames.MainMenu,
-                ToolboxMenuNames.ToolboxMenu));
+                ToolboxMenuNames.ToolboxMenu).And.SetOwningModuleName(ModuleDescription.ModuleName));
             
             menuRegistrar.AddMenuItem(infoFactory.CreateMenuInfo("Load Add On _Module",
                 AddOnsMenuNames.LoadAdonModuleMenuItem,
@@ -28,4 +29,6 @@ namespace gsdc.toolbox.addons.services
             menuService.DisplayThisMenuItem(AddOnsMenuNames.LoadAdonsMenuItem);
         }
     }
+
+    
 }

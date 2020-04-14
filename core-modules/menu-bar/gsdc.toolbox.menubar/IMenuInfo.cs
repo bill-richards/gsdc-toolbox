@@ -10,7 +10,12 @@ namespace gsdc.toolbox.menubar
         string DisplayText { get; }
         dynamic Icon { get; }
         string Name { get; }
+        string OwningModuleName { get; }
         string ParentName { get; }
         string ToolTip { get; }
+
+        IMenuInfo And { get; }
+
+        IMenuInfo SetOwningModuleName(string owningModuleName);
     }
 }

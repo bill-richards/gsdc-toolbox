@@ -1,4 +1,4 @@
-﻿namespace shiny.themes
+﻿namespace themes.shiny
 {
     internal static class ShinyThemeMenuItemNames
     {

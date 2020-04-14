@@ -1,9 +1,9 @@
 ﻿using System.Reflection;
 using gsdc.toolbox.menubar;
 using Prism.Commands;
-using themes;
+using toolbox.themes;
 
-namespace bureau.themes.services
+namespace themes.bureau.services
 {
     internal class MenuBuilderService
     {

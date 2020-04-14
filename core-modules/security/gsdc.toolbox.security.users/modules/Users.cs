@@ -1,9 +1,11 @@
-﻿using Prism.Ioc;
+﻿using gsdc.toolbox.security.modules;
+using Prism.Ioc;
 using Prism.Modularity;
 
 namespace gsdc.toolbox.security.users.modules
 {
-    public class UsersModule : IModule
+    [Module(ModuleName = ModuleDescription.ModuleName)]
+    public class Users : IModule
     {
         public void OnInitialized(IContainerProvider containerProvider)
         {

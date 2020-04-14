@@ -1,4 +1,4 @@
-﻿namespace themes
+﻿namespace toolbox.themes
 {
     public interface IThemeFinderService
     {

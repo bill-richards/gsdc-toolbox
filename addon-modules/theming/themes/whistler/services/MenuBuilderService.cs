@@ -1,9 +1,9 @@
 ﻿using System.Reflection;
 using gsdc.toolbox.menubar;
 using Prism.Commands;
-using themes;
+using toolbox.themes;
 
-namespace whistler.themes.services
+namespace themes.whistler.services
 {
     internal class MenuBuilderService
     {
