@@ -1,11 +1,12 @@
 ﻿using Prism.Ioc;
 using Prism.Modularity;
-using whistler.themes.services;
+using themes.whistler.services;
 
-namespace whistler.themes.modules
+namespace themes.whistler.modules
 {
-    [ModuleDependency("ThemesModule")]
-    public class WhistlerThemesModule : IModule
+    [Module(ModuleName = ModuleDescription.ModuleName)]
+    [ModuleDependency(ModuleDescription.ThemesModuleName)]
+    public class Module : IModule
     {
         public void OnInitialized(IContainerProvider containerProvider) 
             => containerProvider.Resolve<MenuBuilderService>();

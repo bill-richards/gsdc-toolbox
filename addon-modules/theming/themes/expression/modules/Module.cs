@@ -1,11 +1,12 @@
-﻿using expression.themes.services;
-using Prism.Ioc;
+﻿using Prism.Ioc;
 using Prism.Modularity;
+using themes.expression.services;
 
-namespace expression.themes.modules
+namespace themes.expression.modules
 {
-    [ModuleDependency("ThemesModule")]
-    public class ExpressionThemesModule : IModule
+    [Module(ModuleName = ModuleDescription.ModuleName)]
+    [ModuleDependency(ModuleDescription.ThemesModuleName)]
+    public class Module : IModule
     {
         public void OnInitialized(IContainerProvider containerProvider) 
             => containerProvider.Resolve<MenuBuilderService>();

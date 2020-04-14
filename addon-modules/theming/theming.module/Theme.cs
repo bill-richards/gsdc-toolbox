@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace themes
+namespace toolbox.themes
 {
     internal class Theme : ITheme, IThemeFactory
     {

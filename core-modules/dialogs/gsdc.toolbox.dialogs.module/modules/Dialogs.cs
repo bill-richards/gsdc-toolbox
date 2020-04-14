@@ -3,9 +3,10 @@ using gsdc.toolbox.dialogs.Services;
 using Prism.Ioc;
 using Prism.Modularity;
 
-namespace gsdc.toolbox.dialogs.Modules
+namespace gsdc.toolbox.dialogs.modules
 {
-    public class DialogsModule : IModule
+    [Module(ModuleName = ModuleDescription.ModuleName)]
+    public class Dialogs : IModule
     {
         public void OnInitialized(IContainerProvider containerProvider)
         {

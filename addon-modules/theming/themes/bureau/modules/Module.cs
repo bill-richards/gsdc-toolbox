@@ -1,11 +1,12 @@
-﻿using cnl.themes.services;
-using Prism.Ioc;
+﻿using Prism.Ioc;
 using Prism.Modularity;
+using themes.bureau.services;
 
-namespace cnl.themes.modules
+namespace themes.bureau.modules
 {
-    [ModuleDependency("ThemesModule")]
-    public class CnlThemesModule : IModule
+    [Module(ModuleName = ModuleDescription.ModuleName)]
+    [ModuleDependency(ModuleDescription.ThemesModuleName)]
+    public class Module : IModule
     {
         public void OnInitialized(IContainerProvider containerProvider) 
             => containerProvider.Resolve<MenuBuilderService>();

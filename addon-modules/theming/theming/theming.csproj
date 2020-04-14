@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
-    <RootNamespace>themes</RootNamespace>
+    <RootNamespace>toolbox.themes</RootNamespace>
   </PropertyGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="XCOPY /Y $(TargetPath) $(ProjectDir)..\..\..\Build\netcoreapp3.1\add-on-modules\theming\" />

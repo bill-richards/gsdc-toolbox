@@ -1,4 +1,4 @@
-﻿namespace whistler.themes
+﻿namespace themes.whistler
 {
     internal static class WhistlerThemeMenuItemNames
     {

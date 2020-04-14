@@ -6,7 +6,7 @@ using System.Windows;
 using gsdc.toolbox.events;
 using Prism.Events;
 
-namespace themes.services
+namespace toolbox.themes.services
 {
     internal class ThemeApplicationService : IThemeApplicationService
     {

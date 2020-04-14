@@ -1,11 +1,12 @@
 ﻿using Prism.Ioc;
 using Prism.Modularity;
-using bureau.themes.services;
+using themes.cnl.services;
 
-namespace bureau.themes.modules
+namespace themes.cnl.modules
 {
-    [ModuleDependency("ThemesModule")]
-    public class BureauThemesModule : IModule
+    [Module(ModuleName = ModuleDescription.ModuleName)]
+    [ModuleDependency(ModuleDescription.ThemesModuleName)]
+    public class Module : IModule
     {
         public void OnInitialized(IContainerProvider containerProvider) 
             => containerProvider.Resolve<MenuBuilderService>();

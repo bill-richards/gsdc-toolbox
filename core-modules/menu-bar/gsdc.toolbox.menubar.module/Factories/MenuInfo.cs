@@ -31,6 +31,7 @@ namespace gsdc.toolbox.menubar.Factories
         public dynamic Icon { get; }
         public string DisplayText { get; }
         public string Name { get; }
+        public string OwningModuleName { get; private set; }
         public string ParentName { get; }
         public string ToolTip { get; }
         public ICommand Command { get; }
@@ -50,5 +51,13 @@ namespace gsdc.toolbox.menubar.Factories
 
         public IMenuInfo CreateMenuSeparatorInfo(string parentMenuName)
             => new MenuInfo(string.Empty, ToolboxMenuNames.ToolboxMenuSeparator, parentMenuName);
+
+        public IMenuInfo And => this;
+
+        public IMenuInfo SetOwningModuleName(string owningModuleName)
+        {
+            OwningModuleName = owningModuleName;
+            return this;
+        }
     }
 }
