@@ -7,23 +7,26 @@ namespace shiny.themes.services
 {
     internal class MenuBuilderService
     {
-        public MenuBuilderService(IMenuInfoFactory infoFactory, IMenuService menuService, IThemeApplicationService themeApplicationService)
+        public MenuBuilderService(IMenuInfoFactory infoFactory, IMenuRegistrar menuRegistrar, IThemeApplicationService themeApplicationService, IMenuService menuService)
         {
             themeApplicationService.CreateThemeList(Assembly.GetAssembly(typeof(MenuBuilderService)));
             
-            menuService.AddMenuItem(infoFactory.CreateMenuInfo("_Shiny Themes",
+            menuRegistrar.AddMenuItem(infoFactory.CreateMenuInfo("_Shiny Themes",
                 ShinyThemeMenuItemNames.ShinyThemes,
                 ThemingMenuNames.ThemeListMenuItem));
 
-            menuService.AddMenuItem(infoFactory.CreateMenuInfo("_Blue",
-                ShinyThemeMenuItemNames.ShinyBlue,
-                ShinyThemeMenuItemNames.ShinyThemes,
-                new DelegateCommand(()=> themeApplicationService.ApplyTheme("Shinyblue"))));
-            
-            menuService.AddMenuItem(infoFactory.CreateMenuInfo("_Red",
+            menuRegistrar.AddMenuItem(infoFactory.CreateMenuInfo("_Red",
                 ShinyThemeMenuItemNames.ShinyRed,
                 ShinyThemeMenuItemNames.ShinyThemes,
                 new DelegateCommand(()=> themeApplicationService.ApplyTheme("Shinyred"))));
+
+            menuRegistrar.AddMenuItem(infoFactory.CreateMenuInfo("_Blue",
+                ShinyThemeMenuItemNames.ShinyBlue,
+                ShinyThemeMenuItemNames.ShinyThemes,
+                new DelegateCommand(()=> themeApplicationService.ApplyTheme("Shinyblue"))));
+
+            menuService.DisplayThisMenuItem(ShinyThemeMenuItemNames.ShinyBlue);
+            menuService.DisplayThisMenuItem(ShinyThemeMenuItemNames.ShinyRed);
         }
     }
 }

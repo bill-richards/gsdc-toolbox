@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace gsdc.toolbox.menubar.Factories
 {
@@ -14,7 +16,7 @@ namespace gsdc.toolbox.menubar.Factories
             _newMenuSeparator = separatorFactory;
         }
 
-        public MenuItem Create(IMenuItemViewModel vm)
+        public MenuItem CreateMenuItemFromViewModel(IMenuItemViewModel vm)
         {
             var menuItem = _newMenuItem();
 
@@ -27,11 +29,14 @@ namespace gsdc.toolbox.menubar.Factories
             menuItem.Icon = vm.Icon;
             menuItem.ToolTip = vm.ToolTip;
 
+            BindingOperations.SetBinding(menuItem, UIElement.VisibilityProperty, new Binding("Visibility") {Source = vm});
+
             return menuItem;
         }
 
-        public Separator CreateSeparator() 
+        public Separator CreateMenuSeparator() 
             => _newMenuSeparator();
+
 
         public string GetValidMenuNameFromGuid(string guid) 
             => $"_{guid.Replace("}", "").Replace("{", "").Replace("-", "_")}";

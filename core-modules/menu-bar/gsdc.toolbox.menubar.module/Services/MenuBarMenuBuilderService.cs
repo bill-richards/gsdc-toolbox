@@ -4,18 +4,20 @@ using Prism.Events;
 
 namespace gsdc.toolbox.menubar.Services
 {
-    internal class MenuBarMenuBuilderService
+    internal class MenuBarMenuBuilderService 
     {
-        public MenuBarMenuBuilderService(IMenuInfoFactory infoFactory, IEventAggregator eventAggregator, IMenuService menuService)
+        public MenuBarMenuBuilderService(IMenuInfoFactory infoFactory, IEventAggregator eventAggregator, IMenuRegistrar menuRegistrar, IMenuService menuService)
         {
-            menuService.AddMenuItem(infoFactory.CreateMenuInfo("T_oolbox",
+            menuRegistrar.AddMenuItem(infoFactory.CreateMenuInfo("T_oolbox",
                 ToolboxMenuNames.ToolboxMenu,
                 ToolboxMenuNames.ToolboxMenuBar));
 
-            menuService.AddMenuItem(infoFactory.CreateMenuInfo("E_xit",
+            menuRegistrar.AddMenuItem(infoFactory.CreateMenuInfo("E_xit",
                 "ExitButton",
                 ToolboxMenuNames.ToolboxMenu,
                 new DelegateCommand(() => eventAggregator.GetEvent<ShutDownTheToolbox>().Publish(), () => true)));
+
+            menuService.DisplayThisMenuItem("ExitButton");
         }
     }
 }
