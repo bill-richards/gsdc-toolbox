@@ -18,7 +18,7 @@ namespace themes.whistler.services
                 .And()
                 .SetOwningModuleName(modules.ModuleDescription.ModuleName));
 
-            menuService.DisplayThisMenuItem(WhistlerThemeMenuItemNames.WhistlerBlue);
+            menuService.DisplayMenuItemsForModule(modules.ModuleDescription.ModuleName);
         }
     }
 }

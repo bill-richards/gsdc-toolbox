@@ -7,7 +7,7 @@ namespace themes.cnl.services
 {
     internal class MenubarConstructionService
     {
-        public MenubarConstructionService(IMenuInfoFactory infoFactory, IMenuRegistrar menuRegistrar, IThemeApplicationService themeApplicationService)
+        public MenubarConstructionService(IMenuInfoFactory infoFactory, IMenuRegistrar menuRegistrar, IThemeApplicationService themeApplicationService, IMenuService menuService)
         {
             themeApplicationService.CreateThemeList(Assembly.GetExecutingAssembly());
 
@@ -37,6 +37,8 @@ namespace themes.cnl.services
                     new DelegateCommand(() => themeApplicationService.ApplyTheme("Cnltheme_silver")))
                 .And()
                 .SetOwningModuleName(modules.ModuleDescription.ModuleName));
+
+            menuService.DisplayMenuItemsForModule(modules.ModuleDescription.ModuleName);
         }
     }
 }

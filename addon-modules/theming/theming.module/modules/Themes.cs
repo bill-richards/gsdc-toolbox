@@ -5,6 +5,7 @@ using toolbox.themes.services;
 namespace toolbox.themes.modules
 {
     [Module(ModuleName = ModuleDescription.ModuleName)]
+    [ModuleDependency(ModuleDependencies.Menubar)]
     public class Themes : IModule
     {
         public void OnInitialized(IContainerProvider containerProvider) 
