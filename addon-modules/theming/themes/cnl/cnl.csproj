@@ -23,6 +23,6 @@
     </Page>
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="XCOPY /Y $(TargetPath) $(ProjectDir)..\..\..\..\Build\netcoreapp3.1\add-on-modules\theming\themes\" />
+    <Exec Command="XCOPY /Y $(TargetPath) $(ProjectDir)..\..\..\..\Build\netcoreapp3.1\theme-modules\cnl\it\really\does\not\matter\how\many\directories\deep\the\theme\library\is\" />
   </Target>
 </Project>

@@ -17,11 +17,10 @@ namespace gsdc.toolbox.menubar.Events
             IsMenuVisible = isVisible;
         }
 
-        private MenuVisibilityEventArgs(bool isVisible)
-        {
-            IsMenuVisible = isVisible;
-        }
+        private MenuVisibilityEventArgs(bool isVisible) 
+            => IsMenuVisible = isVisible;
 
+        // ReSharper disable once MemberCanBePrivate.Global
         public SetMenuItemVisibilityEvent SetMenuVisibilityEvent { get; }
 
         public string OwningModuleName { get; set; }

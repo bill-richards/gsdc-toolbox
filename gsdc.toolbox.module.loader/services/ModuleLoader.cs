@@ -8,70 +8,72 @@ namespace gsdc.toolbox.module.loader.services
     internal class ModuleLoader : IModuleLoader
     {
         private readonly IModuleManager _moduleManager;
-        private readonly IModuleCatalog _loadedCatalog;
-        private List<IModuleInfo> _modulesAddedToCatalog;
+        private readonly IModuleCatalog _catalogOfLoadedModules;
+        private readonly IModuleLocator _moduleLocator;
 
-        public ModuleLoader(IModuleManager moduleManager, IModuleCatalog loadedCatalog)
+        private readonly List<IModuleInfo> _safeToLoadModules;
+        private readonly List<IModuleInfo> _modulesWithMissingDependencies;
+
+        public ModuleLoader(IModuleManager moduleManager, IModuleCatalog loadedCatalog, IModuleLocator moduleLocator)
         {
             _moduleManager = moduleManager;
-            _loadedCatalog = loadedCatalog;
+            _catalogOfLoadedModules = loadedCatalog;
+            _moduleLocator = moduleLocator;
+            _modulesWithMissingDependencies = new List<IModuleInfo>();
+            _safeToLoadModules = new List<IModuleInfo>();
         }
 
-        public void ScanAndLoadModules(string path, bool doNotScanImmediateChildDirectories = false)
+        public IEnumerable<IModuleInfo> ModulesWithMissingDependencies => _modulesWithMissingDependencies;
+
+        public int LoadModule(in string filePath)
         {
-            _modulesAddedToCatalog = new List<IModuleInfo>(AddModulesToTheCatalog(path));
-
-            if(!doNotScanImmediateChildDirectories)
-                ScanImmediateChildDirectories(path);
-
-            _modulesAddedToCatalog.Reverse();
-            LoadCatalogModules();
+            _safeToLoadModules.Clear();
+            _modulesWithMissingDependencies.Clear();
+            var uri = new System.Uri(filePath).AbsoluteUri;
+            var directory = new FileInfo(filePath).DirectoryName;
+            var moduleInfos = _moduleLocator.ParseDirectoriesForModulesToLoad(in directory, false).Where(info => info.Ref == uri);
+            
+            ParseModuleCatalogForThoseWhichAreSafeToLoad(in moduleInfos);
+            AddLoadableModulesToTheApplicationModuleCatalog();
+            return _safeToLoadModules.Count;
         }
 
-        private void ScanImmediateChildDirectories(string path)
+        public int ScanAndLoadModules(in string path, bool doNotScanChildDirectories = false)
         {
-            foreach (var moduleFolder in Directory.GetDirectories(path))
-                _modulesAddedToCatalog.AddRange(AddModulesToTheCatalog(moduleFolder));
+            _safeToLoadModules.Clear();
+            _modulesWithMissingDependencies.Clear();
+            var moduleInfos = _moduleLocator.ParseDirectoriesForModulesToLoad(in path, !doNotScanChildDirectories);
+            ParseModuleCatalogForThoseWhichAreSafeToLoad(in moduleInfos);
+            AddLoadableModulesToTheApplicationModuleCatalog();
+            return _safeToLoadModules.Count;
         }
 
-        private IEnumerable<IModuleInfo> AddModulesToTheCatalog(string directory)
+        private void ParseModuleCatalogForThoseWhichAreSafeToLoad(in IEnumerable<IModuleInfo> temporaryCatalog)
         {
-            var temporaryCatalog = new DirectoryModuleCatalog { ModulePath = directory };
-            temporaryCatalog.Load();
-            foreach (var info in temporaryCatalog.Modules)
-            {
-                if (_loadedCatalog.Modules.Any(m => m.ModuleName.Equals(info.ModuleName)))
-                    continue;
-
-                info.InitializationMode = InitializationMode.OnDemand;
-                _loadedCatalog.AddModule(info);
-            }
-
-            return temporaryCatalog.Modules;
+            var notYetLoadedModules = NonLoadedModulesInThisCatalog(temporaryCatalog).ToArray();
+            _modulesWithMissingDependencies.AddRange(WhichModulesHaveMissingDependencies(notYetLoadedModules));
+            _safeToLoadModules.AddRange(notYetLoadedModules.Except(_modulesWithMissingDependencies));
         }
 
-        private void LoadCatalogModules()
+        private IEnumerable<IModuleInfo> NonLoadedModulesInThisCatalog(IEnumerable<IModuleInfo> catalog)
+            => catalog
+                .Where(moduleInfo
+                    => !_catalogOfLoadedModules.Modules
+                        .Any(info => info.ModuleName.Equals(moduleInfo.ModuleName)));
+
+        private IEnumerable<IModuleInfo> WhichModulesHaveMissingDependencies(IList<IModuleInfo> catalogReference) 
+            => catalogReference
+                .Where(info
+                    => info.DependsOn.Count != 0
+                       && info.DependsOn.Any(dependency
+                           => _catalogOfLoadedModules.Modules.All(moduleInfo => moduleInfo.ModuleName != dependency)
+                              && catalogReference.All(moduleInfo => moduleInfo.ModuleName != dependency)));
+
+        private void AddLoadableModulesToTheApplicationModuleCatalog()
         {
-            _loadedCatalog.Initialize();
-            var retry = false;
-            var count = 0;
-            var numberOfModulesToAdd = _modulesAddedToCatalog.Count;
-            do
-            {
-                try
-                {
-                    foreach (var info in _modulesAddedToCatalog)
-                    {
-                        _moduleManager.LoadModule(info.ModuleName);
-                        _modulesAddedToCatalog.Remove(info);
-                    }
-                }
-                catch
-                {
-                    retry = true;
-                    count++;
-                }
-            } while (retry && count < numberOfModulesToAdd);
+            _safeToLoadModules.ForEach(moduleInfo => _catalogOfLoadedModules.AddModule(moduleInfo));
+            _catalogOfLoadedModules.Initialize();
+            _safeToLoadModules.ForEach(info =>_moduleManager.LoadModule(info.ModuleName));
         }
-    }
+   }
 }
