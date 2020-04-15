@@ -13,6 +13,7 @@ namespace gsdc.toolbox.security.users.modules
 
         }
 
+
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
 
