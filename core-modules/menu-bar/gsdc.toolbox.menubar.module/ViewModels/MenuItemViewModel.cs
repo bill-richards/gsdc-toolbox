@@ -41,9 +41,23 @@ namespace gsdc.toolbox.menubar.ViewModels
         }
 
         private bool ShouldSetMenuVisibility(IMenuVisibilityEventArgs args)
-            => (!string.IsNullOrWhiteSpace(args.MenuName) && (args.MenuName.Equals(Name) || args.MenuName.Equals(args.AllMenuItems)) 
-                || !string.IsNullOrWhiteSpace(args.OwningModuleName) || args.OwningModuleName == OwningModuleName)
-               && args.IsMenuVisible != IsVisible;
+        {
+            if (!string.IsNullOrWhiteSpace(args.OwningModuleName) 
+                && args.OwningModuleName != OwningModuleName)
+            {
+                return false;
+            }
+
+            if (!string.IsNullOrWhiteSpace(args.OwningModuleName)
+                && args.OwningModuleName == OwningModuleName
+                && args.IsMenuVisible != IsVisible)
+            {
+                return true;
+            }
+
+            return !string.IsNullOrWhiteSpace(args.MenuName) &&
+                   (args.MenuName.Equals(Name) || args.MenuName.Equals(args.AllMenuItems));
+        }
 
         private bool IsVisible => Visibility == Visibility.Visible;
 
@@ -85,7 +99,11 @@ namespace gsdc.toolbox.menubar.ViewModels
         private void SetVisibility(IMenuVisibilityEventArgs eventArgs)
         {
             Visibility = eventArgs.IsMenuVisible ? Visibility.Visible : Visibility.Collapsed;
-            _menuVisibilityEventFacade.SetVisibilityForSpecificMenuItem(ParentName, eventArgs.IsMenuVisible);
+            
+            if(string.IsNullOrWhiteSpace(eventArgs.OwningModuleName))
+                _menuVisibilityEventFacade.SetVisibilityForSpecificMenuItem(ParentName, eventArgs.IsMenuVisible);
+            else
+                _menuVisibilityEventFacade.SetVisibilityForModuleMenuItems(eventArgs.OwningModuleName, eventArgs.IsMenuVisible);
         }
 
         public ObservableCollection<object> MenuItems { get; }
