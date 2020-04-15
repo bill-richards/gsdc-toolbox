@@ -10,8 +10,10 @@ namespace gsdc.toolbox.menubar.Services
         public MenubarConstructionService(IMenuInfoFactory infoFactory, IEventAggregator eventAggregator, IMenuRegistrar menuRegistrar, IMenuService menuService)
         {
             menuRegistrar.AddMenuItem(infoFactory.CreateMenuInfo("T_oolbox",
-                ToolboxMenuNames.ToolboxMenu,
-                ToolboxMenuNames.ToolboxMenuBar).And().SetOwningModuleName(ModuleDescription.ModuleName));
+                    ToolboxMenuNames.ToolboxMenu,
+                    ToolboxMenuNames.ToolboxMenuBar)
+                .And()
+                .SetOwningModuleName(ModuleDescription.ModuleName));
 
             menuRegistrar.AddMenuItem(infoFactory.CreateMenuInfo("E_xit",
                     "ExitButton",
@@ -20,7 +22,7 @@ namespace gsdc.toolbox.menubar.Services
                 .And()
                 .SetOwningModuleName(ModuleDescription.ModuleName));
 
-            menuService.DisplayThisMenuItem("ExitButton");
+            menuService.DisplayMenuItemsForModule(ModuleDescription.ModuleName);
         }
     }
 }

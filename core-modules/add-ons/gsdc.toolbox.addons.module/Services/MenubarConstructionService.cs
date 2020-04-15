@@ -25,8 +25,7 @@ namespace gsdc.toolbox.addons.services
                 "Load an add on module from a specific location",
                 commands.LoadAddOnModuleCommand).And().SetOwningModuleName(ModuleDescription.ModuleName));
 
-            menuService.DisplayThisMenuItem(AddOnsMenuNames.LoadAdonsMenuItem);
-            menuService.DisplayThisMenuItem(AddOnsMenuNames.LoadAdonModuleMenuItem);
+            menuService.DisplayMenuItemsForModule(ModuleDescription.ModuleName);
         }
     }
 

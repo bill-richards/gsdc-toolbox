@@ -26,8 +26,7 @@ namespace toolbox.themes.services
                 .And()
                 .SetOwningModuleName(modules.ModuleDescription.ModuleName));
 
-            menuService.DisplayThisMenuItem(ThemingMenuNames.FindThemesMenuItem);
-            menuService.DisplayThisMenuItem(ThemingMenuNames.ThemeListMenuItem);
+            menuService.DisplayMenuItemsForModule(modules.ModuleDescription.ModuleName);
         }
     }
 }

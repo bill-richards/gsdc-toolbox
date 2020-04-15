@@ -17,7 +17,20 @@ namespace gsdc.toolbox.menubar.Events
             IsMenuVisible = isVisible;
         }
 
+        private MenuVisibilityEventArgs(bool isVisible)
+        {
+            IsMenuVisible = isVisible;
+        }
+
         public SetMenuItemVisibilityEvent SetMenuVisibilityEvent { get; }
+
+        public string OwningModuleName { get; set; }
+
+        public void SetVisibilityForModuleMenuItems(string moduleName, bool isVisible)
+        {
+            if (string.IsNullOrWhiteSpace(moduleName)) return;
+            SetMenuVisibilityEvent?.Publish(new MenuVisibilityEventArgs(isVisible) {OwningModuleName = moduleName});
+        }
 
         public void SetVisibilityForSpecificMenuItem(string menuItemName, bool isVisible)
         {

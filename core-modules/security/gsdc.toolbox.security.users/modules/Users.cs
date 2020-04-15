@@ -5,6 +5,7 @@ using Prism.Modularity;
 namespace gsdc.toolbox.security.users.modules
 {
     [Module(ModuleName = ModuleDescription.ModuleName)]
+    [ModuleDependency(ModuleDependencies.Menubar)]
     public class Users : IModule
     {
         public void OnInitialized(IContainerProvider containerProvider)

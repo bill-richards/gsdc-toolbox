@@ -31,8 +31,7 @@ namespace themes.expression.services
                 .And()
                 .SetOwningModuleName(modules.ModuleDescription.ModuleName));
 
-            menuService.DisplayThisMenuItem(ExpressionThemeMenuItemNames.ExpressionLight);
-            menuService.DisplayThisMenuItem(ExpressionThemeMenuItemNames.ExpressionDark);
+            menuService.DisplayMenuItemsForModule(modules.ModuleDescription.ModuleName);
         }
     }
 }
