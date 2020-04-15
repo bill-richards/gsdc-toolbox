@@ -15,6 +15,6 @@ namespace toolbox.themes.services
         }
 
         public void FindThemes() 
-            => _addOnService.LoadAddOns(_applicationService.GetSubDirectory(_applicationService.AddOnsDirectoryName, "theming", "themes"));
+            => _addOnService.LoadAddOns(_applicationService.GetSubDirectory("theme-modules"));
     }
 }

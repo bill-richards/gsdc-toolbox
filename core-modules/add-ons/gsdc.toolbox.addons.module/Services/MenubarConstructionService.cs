@@ -1,6 +1,5 @@
 ﻿using gsdc.toolbox.addons.modules;
 using gsdc.toolbox.menubar;
-using Prism.Commands;
 
 namespace gsdc.toolbox.addons.services
 {
