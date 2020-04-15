@@ -6,6 +6,7 @@ namespace themes.expression.modules
 {
     [Module(ModuleName = ModuleDescription.ModuleName)]
     [ModuleDependency(ModuleDescription.ThemesModuleName)]
+    [ModuleDependency(ModuleDependencies.Menubar)]
     public class Module : IModule
     {
         public void OnInitialized(IContainerProvider containerProvider) 

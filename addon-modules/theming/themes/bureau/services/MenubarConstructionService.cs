@@ -31,8 +31,7 @@ namespace themes.bureau.services
                 .And()
                 .SetOwningModuleName(modules.ModuleDescription.ModuleName));
 
-            menuService.DisplayThisMenuItem(BureauThemeMenuItemNames.BureauBlue);
-            menuService.DisplayThisMenuItem(BureauThemeMenuItemNames.BureauBlack);
+            menuService.DisplayMenuItemsForModule(modules.ModuleDescription.ModuleName);
         }
     }
 }

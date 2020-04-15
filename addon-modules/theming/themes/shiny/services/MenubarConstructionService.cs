@@ -31,8 +31,7 @@ namespace themes.shiny.services
                 .And()
                 .SetOwningModuleName(modules.ModuleDescription.ModuleName));
 
-            menuService.DisplayThisMenuItem(ShinyThemeMenuItemNames.ShinyBlue);
-            menuService.DisplayThisMenuItem(ShinyThemeMenuItemNames.ShinyRed);
+            menuService.DisplayMenuItemsForModule(modules.ModuleDescription.ModuleName);
         }
     }
 }

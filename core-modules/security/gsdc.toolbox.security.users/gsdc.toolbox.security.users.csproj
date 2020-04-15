@@ -9,7 +9,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\gsdc.toolbox\gsdc.toolbox.csproj" />
+    <ProjectReference Include="..\..\menu-bar\gsdc.toolbox.menubar\gsdc.toolbox.menubar.csproj" />
     <ProjectReference Include="..\gsdc.toolbox.security\gsdc.toolbox.security.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="services\" />
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="xcopy /Y $(TargetPath) $(ProjectDir)..\..\..\Build\netcoreapp3.1\core-modules\security\" />

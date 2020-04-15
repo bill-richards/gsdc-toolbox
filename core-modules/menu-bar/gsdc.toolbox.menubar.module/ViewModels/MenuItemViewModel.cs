@@ -34,13 +34,15 @@ namespace gsdc.toolbox.menubar.ViewModels
             ParentName = info.ParentName;
             ToolTip = info.ToolTip;
             Visibility = Visibility.Collapsed;
+            OwningModuleName = info.OwningModuleName;
 
             _menuVisibilityEventFacade.SetEventSubscription(SetVisibility, ShouldSetMenuVisibility);
             menuRegistrar.MenuItemAdded += AddChildMenuItemIfIAmTheParent;
         }
 
         private bool ShouldSetMenuVisibility(IMenuVisibilityEventArgs args)
-            => (args.MenuName.Equals(Name) || args.MenuName.Equals(args.AllMenuItems)) 
+            => (!string.IsNullOrWhiteSpace(args.MenuName) && (args.MenuName.Equals(Name) || args.MenuName.Equals(args.AllMenuItems)) 
+                || !string.IsNullOrWhiteSpace(args.OwningModuleName) || args.OwningModuleName == OwningModuleName)
                && args.IsMenuVisible != IsVisible;
 
         private bool IsVisible => Visibility == Visibility.Visible;
@@ -71,7 +73,7 @@ namespace gsdc.toolbox.menubar.ViewModels
         public string Name { get; }
         public dynamic Icon { get; }
         public string ToolTip { get; }
-
+        
         public string ParentName { get; }
 
         public Visibility Visibility
@@ -87,6 +89,9 @@ namespace gsdc.toolbox.menubar.ViewModels
         }
 
         public ObservableCollection<object> MenuItems { get; }
+
+        private string OwningModuleName { get; }
+
         public ICommand Command { get; }
         public object CommandParameter { get; }
     }
