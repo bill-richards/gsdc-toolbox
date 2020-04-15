@@ -1,5 +1,6 @@
 ﻿using gsdc.toolbox.addons.modules;
 using gsdc.toolbox.menubar;
+using Prism.Commands;
 
 namespace gsdc.toolbox.addons.services
 {
@@ -10,20 +11,26 @@ namespace gsdc.toolbox.addons.services
             menuRegistrar.AddMenuItem(infoFactory.CreateMenuSeparatorInfo(ToolboxMenuNames.ToolboxMenu));
 
             menuRegistrar.AddMenuItem(infoFactory.CreateMenuInfo("_Add Ons",
-                AddOnsMenuNames.MainMenu,
-                ToolboxMenuNames.ToolboxMenu).And().SetOwningModuleName(ModuleDescription.ModuleName));
-            
+                    AddOnsMenuNames.MainMenu,
+                    ToolboxMenuNames.ToolboxMenu)
+                .And()
+                .SetOwningModuleName(ModuleDescription.ModuleName));
+
             menuRegistrar.AddMenuItem(infoFactory.CreateMenuInfo("_Load Application Add On Modules",
-                AddOnsMenuNames.LoadAdonsMenuItem,
-                AddOnsMenuNames.MainMenu,
-                "Load all add on modules from the application's add-on-modules directory",
-                commands.LoadApplicationAddOnModulesCommand).And().SetOwningModuleName(ModuleDescription.ModuleName));
+                    AddOnsMenuNames.LoadAdonsMenuItem,
+                    AddOnsMenuNames.MainMenu,
+                    "Load all add on modules from the application's add-on-modules directory",
+                    commands.LoadApplicationAddOnModulesCommand)
+                .And()
+                .SetOwningModuleName(ModuleDescription.ModuleName));
 
             menuRegistrar.AddMenuItem(infoFactory.CreateMenuInfo("Load Add On _Module",
-                AddOnsMenuNames.LoadAdonModuleMenuItem,
-                AddOnsMenuNames.MainMenu,
-                "Load an add on module from a specific location",
-                commands.LoadAddOnModuleCommand).And().SetOwningModuleName(ModuleDescription.ModuleName));
+                    AddOnsMenuNames.LoadAdonModuleMenuItem,
+                    AddOnsMenuNames.MainMenu,
+                    "Load an add on module from a specific location",
+                    commands.LoadAddOnModuleCommand)
+                .And()
+                .SetOwningModuleName(ModuleDescription.ModuleName));
 
             menuService.DisplayMenuItemsForModule(ModuleDescription.ModuleName);
         }

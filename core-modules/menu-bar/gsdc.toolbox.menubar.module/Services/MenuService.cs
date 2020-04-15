@@ -24,7 +24,7 @@ namespace gsdc.toolbox.menubar.Services
             => HideAllMenus?.Invoke();
 
         public void HideMenuItemsForModule(string moduleName)
-            => HideMenuItemsForModule(moduleName);
+            => HideModuleMenus?.Invoke(moduleName);
 
         public void HideThisMenuItem(string menuName)
             => HideThisMenu?.Invoke(menuName);
