@@ -2,6 +2,6 @@
 {
     public interface IAddOnService
     {
-        void LoadAddOns(string directory);
+        void LoadAddOns(string path);
     }
 }

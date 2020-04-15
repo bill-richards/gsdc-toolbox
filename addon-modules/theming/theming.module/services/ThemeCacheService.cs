@@ -13,83 +13,79 @@ using gsdc.toolbox;
 namespace toolbox.themes.services
 {
     internal class ThemeCacheService : IThemeCacheService
-   {
-      private IDictionary<string, ResourceDictionary> Dictionaries { get; set; }
+    {
+        private IDictionary<string, ResourceDictionary> Dictionaries { get; set; }
 
-      public void CacheResourceDictionariesFromTheseAssemblies(IEnumerable<string> assemblyNames)
-      {
-         Dictionaries = new Dictionary<string, ResourceDictionary>();
+        public void CacheResourceDictionariesFromTheseAssemblies(IEnumerable<string> assemblyNames)
+        {
+            Dictionaries = new Dictionary<string, ResourceDictionary>();
 
-         foreach (var file in assemblyNames)
-             CacheTheResourceDictionariesFromThisAssembly(file);
-      }
+            foreach (var file in assemblyNames)
+                CacheTheResourceDictionariesFromThisAssembly(file);
+        }
 
-      public void CacheResourceDictionariesFromThisAssembly(Assembly assembly)
-      {
-         Dictionaries = new Dictionary<string, ResourceDictionary>();
-         CacheTheResourceDictionariesFromThisAssembly(assembly);
-      }
+        public void CacheResourceDictionariesFromThisAssembly(Assembly assembly)
+        {
+            Dictionaries = new Dictionary<string, ResourceDictionary>();
+            CacheTheResourceDictionariesFromThisAssembly(assembly);
+        }
 
-      public IEnumerable<string> GetThemeNames()
-         => Dictionaries.Keys.OrderBy(key => key);
+        public IEnumerable<string> GetThemeNames()
+           => Dictionaries.Keys.OrderBy(key => key);
 
-      public IEnumerable<KeyValuePair<string, ResourceDictionary>> ReadCachedThemes() 
-         => Dictionaries.OrderBy(e => e.Key);
-      private void CacheTheResourceDictionariesFromThisAssembly(Assembly asm)
-      {
-          var stream = asm.GetManifestResourceStream(asm.GetName().Name + ".g.resources");
-          if (stream == null) return;
+        public IEnumerable<KeyValuePair<string, ResourceDictionary>> ReadCachedThemes()
+           => Dictionaries.OrderBy(e => e.Key);
+        private void CacheTheResourceDictionariesFromThisAssembly(Assembly asm)
+        {
+            var stream = asm.GetManifestResourceStream(asm.GetName().Name + ".g.resources");
+            if (stream == null) return;
 
-          try
-          {
-              using var reader = new ResourceReader(stream);
-              foreach (DictionaryEntry entry in reader)
-              {
-                  var readStream = entry.Value as Stream;
-                  if (readStream == null) continue;
-
-                  var bamlReader = new Baml2006Reader(readStream);
-                  var loadedObject = XamlReader.Load(bamlReader);
-                  if (!(loadedObject is ResourceDictionary)) continue;
-
-                  var key = entry.Key.ToString();
-                  // ReSharper disable once PossibleNullReferenceException
-                  var themeName = key.Substring(key.LastIndexOf('/') + 1).Replace(".baml", string.Empty).UppercaseWords();
-                  Dictionaries.Add(themeName, loadedObject as ResourceDictionary);
-              }
-          }
-          catch (Exception) { /**/ }
-      }
-
-      private void CacheTheResourceDictionariesFromThisAssembly(string assemblyName)
-      {
-         var asm = Assembly.LoadFrom(assemblyName);
-
-         var stream = asm.GetManifestResourceStream(asm.GetName().Name + ".g.resources");
-         if (stream == null) return;
-
-         try
-         {
-            using (var reader = new ResourceReader(stream))
+            try
             {
-               foreach (DictionaryEntry entry in reader)
-               {
-                  var readStream = entry.Value as Stream;
-                  if (readStream == null) continue;
+                using var reader = new ResourceReader(stream);
+                foreach (DictionaryEntry entry in reader)
+                {
+                    if (!(entry.Value is Stream readStream)) continue;
 
-                  var bamlReader = new Baml2006Reader(readStream);
-                  var loadedObject = XamlReader.Load(bamlReader);
-                  if (!(loadedObject is ResourceDictionary)) continue;
+                    var bamlReader = new Baml2006Reader(readStream);
+                    var loadedObject = XamlReader.Load(bamlReader);
+                    if (!(loadedObject is ResourceDictionary)) continue;
 
-                  var key = entry.Key.ToString();
-                  // ReSharper disable once PossibleNullReferenceException
-                  var themeName = key.Substring(key.LastIndexOf('/') + 1).Replace(".baml", string.Empty).UppercaseWords();
-                  Dictionaries.Add(themeName, loadedObject as ResourceDictionary);
-               }
+                    var key = entry.Key.ToString();
+                    // ReSharper disable once PossibleNullReferenceException
+                    var themeName = key.Substring(key.LastIndexOf('/') + 1).Replace(".baml", string.Empty).UppercaseWords();
+                    Dictionaries.Add(themeName, loadedObject as ResourceDictionary);
+                }
             }
-         }
-         catch (Exception) { /**/ }
-      }
+            catch (Exception) { /**/ }
+        }
 
-   }
+        private void CacheTheResourceDictionariesFromThisAssembly(string assemblyName)
+        {
+            var asm = Assembly.LoadFrom(assemblyName);
+
+            var stream = asm.GetManifestResourceStream(asm.GetName().Name + ".g.resources");
+            if (stream == null) return;
+
+            try
+            {
+                using var reader = new ResourceReader(stream);
+                foreach (DictionaryEntry entry in reader)
+                {
+                    if (!(entry.Value is Stream readStream)) continue;
+
+                    var bamlReader = new Baml2006Reader(readStream);
+                    var loadedObject = XamlReader.Load(bamlReader);
+                    if (!(loadedObject is ResourceDictionary)) continue;
+
+                    var key = entry.Key.ToString();
+                    // ReSharper disable once PossibleNullReferenceException
+                    var themeName = key.Substring(key.LastIndexOf('/') + 1).Replace(".baml", string.Empty).UppercaseWords();
+                    Dictionaries.Add(themeName, loadedObject as ResourceDictionary);
+                }
+            }
+            catch (Exception) { /**/ }
+        }
+
+    }
 }

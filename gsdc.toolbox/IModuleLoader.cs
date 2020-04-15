@@ -1,7 +1,13 @@
-﻿namespace gsdc.toolbox
+﻿using System.Collections.Generic;
+using Prism.Modularity;
+
+namespace gsdc.toolbox
 {
     public interface IModuleLoader
     {
-        void ScanAndLoadModules(string path, bool doNotScanImmediateChildDirectories = false);
+        IEnumerable<IModuleInfo> ModulesWithMissingDependencies { get; }
+
+        int LoadModule(in string filePath);
+        int ScanAndLoadModules(in string path, bool doNotScanChildDirectories = false);
     }
 }
