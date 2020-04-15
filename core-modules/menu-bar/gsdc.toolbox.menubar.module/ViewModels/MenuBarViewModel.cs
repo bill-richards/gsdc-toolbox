@@ -11,11 +11,14 @@ namespace gsdc.toolbox.menubar.ViewModels
         public MenuBarViewModel(IMenuFacade menuItemFacade, IMenuRegistrar menuRegistrar, IMenuServiceInterpreter menuServiceInterpreter, IMenuVisibilityEventPublisher menuVisibilityEventPublisher)
         {
             menuRegistrar.MenuItemAdded += MenuItemAdded;
+
+            menuServiceInterpreter.DisplayAllMenus += () => menuVisibilityEventPublisher.SetVisibilityForAllMenuItems(true);
             menuServiceInterpreter.DisplayModuleMenus += moduleName => menuVisibilityEventPublisher.SetVisibilityForModuleMenuItems(moduleName, true);
             menuServiceInterpreter.DisplayThisMenu += menuName => menuVisibilityEventPublisher.SetVisibilityForSpecificMenuItem(menuName, true);
-            menuServiceInterpreter.HideThisMenu += menuName => menuVisibilityEventPublisher.SetVisibilityForSpecificMenuItem(menuName, false);
-            menuServiceInterpreter.DisplayAllMenus += () => menuVisibilityEventPublisher.SetVisibilityForAllMenuItems(true);
+
             menuServiceInterpreter.HideAllMenus += () => menuVisibilityEventPublisher.SetVisibilityForAllMenuItems(false);
+            menuServiceInterpreter.HideModuleMenus += moduleName => menuVisibilityEventPublisher.SetVisibilityForModuleMenuItems(moduleName, false);
+            menuServiceInterpreter.HideThisMenu += menuName => menuVisibilityEventPublisher.SetVisibilityForSpecificMenuItem(menuName, false);
 
             _menuItemFacade = menuItemFacade;
         }
