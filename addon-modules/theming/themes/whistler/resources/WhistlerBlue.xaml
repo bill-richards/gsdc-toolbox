@@ -2528,6 +2528,11 @@
         </Setter>
     </Style>
 
+    <Style TargetType="{x:Type Border}" x:Key="Header">
+       <Setter Property="Background" Value="{StaticResource grayGradient}" />
+       <Setter Property="SnapsToDevicePixels" Value="True" />
+    </Style>
+
     <Style TargetType="{x:Type Menu}">
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="Foreground" Value="{StaticResource OutsideFontColor}"/>
