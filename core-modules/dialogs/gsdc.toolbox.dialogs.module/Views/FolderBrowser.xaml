@@ -5,53 +5,54 @@
         xmlns:constants="clr-namespace:gsdc.toolbox.dialogs;assembly=gsdc.toolbox.dialogs"
         prism:ViewModelLocator.AutoWireViewModel="True"
         x:Name="FolderBrowserWindow"
-        Height="400" Width="600" 
-        WindowStyle="None" Loaded="Window_Loaded" ResizeMode="NoResize">
-   <Grid>
-      <Grid.RowDefinitions>
-         <RowDefinition Height="Auto" />
-         <RowDefinition Height="*" />
-         <RowDefinition Height="Auto" />
-      </Grid.RowDefinitions>
-      <Border Grid.Row="0" Background="{DynamicResource WindowBackgroundBrush}" MouseDown="HeaderMouseDown" Height="30">
-         <Label Content="{Binding Title}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" />
-      </Border>
+        Height="400" Width="600" WindowStyle="None" Loaded="Window_Loaded" Topmost="True" WindowStartupLocation="CenterOwner" Background="Transparent" AllowsTransparency="True">
+   <Border CornerRadius="10" Background="{DynamicResource WindowBackgroundBrush}">
+      <Grid>
+         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+         </Grid.RowDefinitions>
+         <Border Grid.Row="0" MouseDown="HeaderMouseDown" Height="30" CornerRadius="10 10 0 0" Style="{DynamicResource Header}">
+            <Label Content="{Binding Title}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" />
+         </Border>
 
-      <Grid Grid.Row="1">
-         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="2*"/>
-         </Grid.ColumnDefinitions>
+         <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+               <ColumnDefinition Width="*" />
+               <ColumnDefinition Width="Auto" />
+               <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
 
-         <!-- TreeView -->
-         <ContentControl x:Name="TreeViewRegion" 
+            <!-- TreeView -->
+            <ContentControl x:Name="TreeViewRegion" 
                             Grid.Column="0" 
                             VerticalAlignment="Stretch"
                             Style="{DynamicResource ContentControlRegionStyle}"
                             prism:RegionManager.RegionName="{x:Static constants:RegionNames.FolderBrowserTreeViewRegion}" />
 
-         <Separator Grid.Column="1" Width="3" Background="{DynamicResource WindowBackgroundBrush}" VerticalAlignment="Stretch" />
+            <Separator Grid.Column="1" Width="3" Background="{DynamicResource WindowBackgroundBrush}" VerticalAlignment="Stretch" />
 
-         <!-- FolderView -->
-         <ContentControl x:Name="FolderViewRegion" 
+            <!-- FolderView -->
+            <ContentControl x:Name="FolderViewRegion" 
                             Grid.Column="2" 
                             VerticalAlignment="Stretch"
                             Style="{DynamicResource ContentControlRegionStyle}"
                             prism:RegionManager.RegionName="{x:Static constants:RegionNames.FolderBrowserFolderViewRegion}" />
-      </Grid>
+         </Grid>
 
-      <Border Grid.Row="2" Background="{DynamicResource WindowBackgroundBrush}" Padding="0, 10, 15, 10">
-         <StackPanel Orientation="Vertical" HorizontalAlignment="Right" >
-            <StackPanel Orientation="Horizontal">
-               <Label Content="{Binding FolderLabel, FallbackValue='Folder:'}" Margin="0,0,5,0" />
-               <TextBox Width="400" Text="{Binding SelectedFolderPath, Mode=TwoWay}" />
+         <Border Grid.Row="2" Padding="0, 10, 15, 10" CornerRadius="0 0 10 10" Style="{DynamicResource Header}">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Right" >
+               <StackPanel Orientation="Horizontal">
+                  <Label Content="{Binding FolderLabel, FallbackValue='Folder:'}" Margin="0,0,5,0" />
+                  <TextBox Width="400" Text="{Binding SelectedFolderPath, Mode=TwoWay}" />
+               </StackPanel>
+               <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5,0,0">
+                  <Button Width="100" Content="Select Folder" Margin="0,0,15,0" Command="{Binding FolderSelectedCommand}" CommandParameter="{Binding ElementName='FolderBrowserWindow'}"/>
+                  <Button Width="100" Content="Cancel" Command="{Binding CancelCommand}" CommandParameter="{Binding ElementName='FolderBrowserWindow'}"/>
+               </StackPanel>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5,0,0">
-               <Button Width="100" Content="Select Folder" Margin="0,0,15,0" Command="{Binding FolderSelectedCommand}" CommandParameter="{Binding ElementName='FolderBrowserWindow'}"/>
-               <Button Width="100" Content="Cancel" Command="{Binding CancelCommand}" CommandParameter="{Binding ElementName='FolderBrowserWindow'}"/>
-            </StackPanel>
-         </StackPanel>
-      </Border>
-   </Grid>
+         </Border>
+      </Grid>
+   </Border>
 </Window>

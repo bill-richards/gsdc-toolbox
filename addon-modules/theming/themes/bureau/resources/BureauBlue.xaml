@@ -2291,6 +2291,12 @@
       </Setter>
    </Style>
 
+   <Style TargetType="{x:Type Border}" x:Key="Header">
+      <Setter Property="Background" Value="{DynamicResource TabControlHeaderBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+      <Setter Property="SnapsToDevicePixels" Value="True" />
+   </Style>
+
    <Style TargetType="{x:Type Menu}">
       <Setter Property="SnapsToDevicePixels" Value="True" />
       <Setter Property="Template">
