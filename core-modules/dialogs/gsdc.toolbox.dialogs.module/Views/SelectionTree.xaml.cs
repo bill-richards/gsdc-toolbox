@@ -3,11 +3,11 @@
 namespace gsdc.toolbox.dialogs.Views
 {
     /// <summary>
-    /// Interaction logic for FolderBrowserTree
+    /// Interaction logic for SelectionTree
     /// </summary>
-    public partial class FolderBrowserTree : UserControl
+    public partial class SelectionTree : UserControl
     {
-        public FolderBrowserTree()
+        public SelectionTree()
         {
             InitializeComponent();
         }
