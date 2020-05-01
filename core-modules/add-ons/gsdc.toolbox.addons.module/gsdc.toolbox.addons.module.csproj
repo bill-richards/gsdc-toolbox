@@ -10,8 +10,8 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\gsdc.toolbox\gsdc.toolbox.csproj" />
-    <ProjectReference Include="..\gsdc.toolbox.addons\gsdc.toolbox.addons.csproj" />
     <ProjectReference Include="..\..\dialogs\gsdc.toolbox.dialogs\gsdc.toolbox.dialogs.csproj" />
+    <ProjectReference Include="..\gsdc.toolbox.addons\gsdc.toolbox.addons.csproj" />
     <ProjectReference Include="..\..\menu-bar\gsdc.toolbox.menubar\gsdc.toolbox.menubar.csproj" />
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">

@@ -19,40 +19,34 @@
 
          <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-               <ColumnDefinition Width="*" />
                <ColumnDefinition Width="Auto" />
                <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
 
-            <!-- TreeView -->
+            <!-- Tree View -->
             <ContentControl x:Name="TreeViewRegion" 
                             Grid.Column="0" 
                             VerticalAlignment="Stretch"
+                            MinWidth="200"
                             Style="{DynamicResource ContentControlRegionStyle}"
                             prism:RegionManager.RegionName="{x:Static constants:RegionNames.FolderBrowserTreeViewRegion}" />
 
-            <Separator Grid.Column="1" Width="3" Background="{DynamicResource WindowBackgroundBrush}" VerticalAlignment="Stretch" />
+            <GridSplitter Grid.Column="0" Width="1" HorizontalAlignment="Right" VerticalAlignment="Stretch" ShowsPreview="True" 
+                          Background="{DynamicResource WindowBackgroundBrush}" Panel.ZIndex="99" />
 
-            <!-- FolderView -->
+            <!-- Folder View -->
             <ContentControl x:Name="FolderViewRegion" 
-                            Grid.Column="2" 
+                            Grid.Column="1" 
                             VerticalAlignment="Stretch"
                             Style="{DynamicResource ContentControlRegionStyle}"
                             prism:RegionManager.RegionName="{x:Static constants:RegionNames.FolderBrowserFolderViewRegion}" />
          </Grid>
 
-         <Border Grid.Row="2" Padding="0, 10, 15, 10" CornerRadius="0 0 10 10" Style="{DynamicResource Header}">
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Right" >
-               <StackPanel Orientation="Horizontal">
-                  <Label Content="{Binding FolderLabel, FallbackValue='Folder:'}" Margin="0,0,5,0" />
-                  <TextBox Width="400" Text="{Binding SelectedFolderPath, Mode=TwoWay}" />
-               </StackPanel>
-               <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5,0,0">
-                  <Button Width="100" Content="Select Folder" Margin="0,0,15,0" Command="{Binding FolderSelectedCommand}" CommandParameter="{Binding ElementName='FolderBrowserWindow'}"/>
-                  <Button Width="100" Content="Cancel" Command="{Binding CancelCommand}" CommandParameter="{Binding ElementName='FolderBrowserWindow'}"/>
-               </StackPanel>
-            </StackPanel>
-         </Border>
+         <!-- Selection View -->
+         <ContentControl Grid.Row="2" 
+                         VerticalAlignment="Stretch"
+                         HorizontalAlignment="Stretch"
+                         prism:RegionManager.RegionName="{x:Static constants:RegionNames.FolderBrowserSelectionRegion}" />
       </Grid>
    </Border>
 </Window>

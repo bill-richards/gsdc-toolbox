@@ -15,8 +15,8 @@
                      <ColumnDefinition />
                   </Grid.ColumnDefinitions>
                   <Label Margin="0, 0, 5, 0" VerticalAlignment="Center" Content="{Binding Label}"/>
-                  <TextBox Margin="0, 0, 5, 0" Grid.Column="1" Width="450" Text="{Binding Path}" />
-                  <Button Grid.Column="2" MinWidth="15" Content="..." Command="{Binding PathFinderCommand}"/>
+                  <TextBox Margin="0, 0, 0, 0" Grid.Column="1" Width="450" Text="{Binding Path}" />
+                  <!--<Button Grid.Column="2" MinWidth="15" Margin="5, 0, 0, 0" Content="..." Command="{Binding PathFinderCommand}"/>-->
                </Grid>
                <Grid DockPanel.Dock="Top">
                   <Grid.RowDefinitions>
